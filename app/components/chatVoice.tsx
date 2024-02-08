@@ -26,7 +26,7 @@ export default function ChatVoice({
             </option>
           ))}
       </select>
-      <hr className="w-2/4 border-white mt-12" />
+      <hr className="w-full lg:w-2/4 mt-6" />
     </div>
   );
 }
