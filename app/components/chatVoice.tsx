@@ -17,14 +17,15 @@ export default function ChatVoice({
         value={selectedVoice}
         onChange={(e) => setSelectedVoice(e.target.value)}
       >
-        {voices
-          .sort((a: Voice, b: Voice) => a.name.localeCompare(b.name))
-          .map((voice: Voice) => (
-            <option key={voice.voice_id} value={voice.name}>
-              {voice.name} ({voice.labels.age} {voice.labels.accent}{" "}
-              {voice.labels.gender})
-            </option>
-          ))}
+        {voices &&
+          voices
+            .sort((a: Voice, b: Voice) => a.name.localeCompare(b.name))
+            .map((voice: Voice) => (
+              <option key={voice.voice_id} value={voice.name}>
+                {voice.name} ({voice.labels.age} {voice.labels.accent}{" "}
+                {voice.labels.gender})
+              </option>
+            ))}
       </select>
       <hr className="w-full lg:w-2/4 mt-6" />
     </div>

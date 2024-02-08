@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useTransition } from "react";
+import Image from "next/image";
 import { userRole, botRole, Message, Voice } from "@/app/types/chat";
 import ChatVoice from "@/app/components/chatVoice";
 import ChatMessages from "@/app/components/chatMessages";
@@ -86,7 +87,7 @@ export default function ChatPage() {
         setVoices(voices?.voices);
       })
       .catch((error) => {
-        console.error(error);
+        throw new Error(error);
       });
   }, []);
 
@@ -98,19 +99,25 @@ export default function ChatPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between py-4 px-4 lg:px-0">
-      <ChatVoice {...{ voices, selectedVoice, setSelectedVoice }} />
-      <ChatMessages messages={messages} />
-      <ChatInput
-        {...{
-          audioRef,
-          input,
-          setInput,
-          messages,
-          loading,
-          sendMessage,
-          clearMessages,
-        }}
-      />
+      {voices.length > 0 ? (
+        <>
+          <ChatVoice {...{ voices, selectedVoice, setSelectedVoice }} />
+          <ChatMessages messages={messages} />
+          <ChatInput
+            {...{
+              audioRef,
+              input,
+              setInput,
+              messages,
+              loading,
+              sendMessage,
+              clearMessages,
+            }}
+          />
+        </>
+      ) : (
+        <p className="text-white text-9xl animate-ping">...</p>
+      )}
     </main>
   );
 }
