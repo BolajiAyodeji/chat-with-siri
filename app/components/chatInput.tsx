@@ -1,0 +1,51 @@
+import Image from "next/image";
+import type { ChatPageProps } from "@/app/types/chat";
+
+export default function ChatInput({
+  audioRef,
+  input,
+  setInput,
+  messages,
+  loading,
+  sendMessage,
+  clearMessages,
+}: ChatPageProps) {
+  return (
+    <div className="flex flex-col items-center w-full fixed bottom-0 pb-2 pt-6 bg-black">
+      <audio ref={audioRef} controls className="mb-2 hidden" />
+      <form onSubmit={sendMessage}>
+        <input
+          type="text"
+          name="your message"
+          value={input}
+          placeholder="What's on your mind?..."
+          onChange={(event) => setInput(event.target.value)}
+          className="w-72 lg:w-96 p-4 border-2 text-white bg-transparent focus:outline-none"
+        />
+        <button
+          type="submit"
+          title="Send message"
+          disabled={input.trim() === "" || input.trim().length < 5}
+          className="w-24 lg:w-auto px-4 lg:px-8 py-4 border-2 border-white bg-white text-black"
+        >
+          {loading ? <p className="animate-spin">⏳</p> : "Ask Siri"}
+        </button>
+      </form>
+      {messages.length > 0 && (
+        <button
+          title="Start new chat"
+          onClick={clearMessages}
+          className="p-2 border-white text-black"
+        >
+          <Image
+            src="/plus.svg"
+            alt="Plus Icon"
+            width={40}
+            height={24}
+            priority
+          />
+        </button>
+      )}
+    </div>
+  );
+}
