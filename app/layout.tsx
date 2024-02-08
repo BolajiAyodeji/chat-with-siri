@@ -10,6 +10,7 @@ const ibm = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://chat-with-siri.vercel.app"),
   title: {
     default: "Chat With Siri",
     template: "%s | Chat With Siri",
@@ -26,7 +27,7 @@ export const metadata: Metadata = {
     url: "https://chat-with-siri.vercel.app",
     images: [
       {
-        url: "https://chat-with-siri.vercel.app/og.jpg",
+        url: "/og.jpg",
         width: 500,
         height: 500,
       },

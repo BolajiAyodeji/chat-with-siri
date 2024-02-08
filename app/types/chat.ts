@@ -16,7 +16,7 @@ export interface Voice {
   };
 }
 
-export interface ChatPageProps {
+export interface ChatInput {
   audioRef: React.RefObject<HTMLAudioElement>;
   input: string;
   setInput: (input: string) => void;
