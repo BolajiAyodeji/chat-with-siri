@@ -11,9 +11,9 @@ export default function ChatInput({
   clearMessages,
 }: ChatInput) {
   return (
-    <div className="flex flex-col items-center w-full fixed bottom-0 pb-2 pt-6 mb-4 bg-black">
+    <div className="flex flex-col items-center w-full fixed bottom-0 pb-2 pt-6 bg-black">
       <audio ref={audioRef} controls className="mb-2 hidden" />
-      <form onSubmit={sendMessage}>
+      <form onSubmit={sendMessage} className="mb-4">
         <label className="hidden" htmlFor="message">
           Enter your message here:
         </label>
@@ -34,21 +34,21 @@ export default function ChatInput({
           {loading ? <p className="animate-spin">⏳</p> : "Ask Siri"}
         </button>
       </form>
-      {messages.length > 0 && (
-        <button
-          title="Start new chat"
-          onClick={clearMessages}
-          className="p-2 border-white text-black"
-        >
-          <Image
-            src="/plus.svg"
-            alt="Plus Icon"
-            width={40}
-            height={24}
-            priority
-          />
-        </button>
-      )}
+      <button
+        title="Start new chat"
+        onClick={clearMessages}
+        className={`p-2 ${
+          messages.length > 0 ? `block` : `hidden`
+        } border-white text-black`}
+      >
+        <Image
+          src="/plus.svg"
+          alt="Plus Icon"
+          width={40}
+          height={24}
+          priority
+        />
+      </button>
     </div>
   );
 }

@@ -1,7 +1,15 @@
+import { Message } from "@/app/types/chat";
+
 export const runtime = "edge";
 
 export async function POST(req: Request) {
   const { messages } = await req.json();
+
+  messages.map((message: Message) => {
+    if (message.role === "user") {
+      message.content = `Given the question: "${message.content}", kindly generate a suitable response with less than 50 characters.`;
+    }
+  });
 
   try {
     const res = await fetch("https://api.openai.com/v1/chat/completions", {
