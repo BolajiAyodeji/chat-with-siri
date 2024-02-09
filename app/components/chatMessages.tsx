@@ -8,11 +8,13 @@ export default function ChatMessages({ messages }: { messages: Message[] }) {
         <div className="flex flex-col items-center">
           <Image
             src="/logo-blue.svg"
+            className=""
             alt="Chat With Siri Logo"
             width={800}
             height={10}
+            priority
           />
-          <h2 className="text-2xl -mt-24 lg:-mt-60">
+          <h2 className="text-xl lg:text-2xl -mt-24 lg:-mt-60">
             How can I help you today? 😉🤖
           </h2>
         </div>
