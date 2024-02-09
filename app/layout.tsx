@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Chat With Siri",
   },
   description:
-    "A simple text-to-speech app using OpenAI's GPT-3 and Eleven Labs' Text-to-Speech API.",
+    "A simple text-to-speech chatbot (OpenAI's GPT-3 and ElevenLabs' API).",
   twitter: {
     card: "summary_large_image",
     creator: "@iambolajiayo",
