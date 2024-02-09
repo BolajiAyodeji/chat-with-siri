@@ -6,15 +6,15 @@ export default function Home() {
       <p className="text-center text-lg border-b border-gray-600 pb-6 pt-8 backdrop-blur-2xl lg:rounded-xl lg:border lg:p-4">
         A simple full-stack text-to-speech chatbot built using Nextjs,{" "}
         <a
-          href="https://platform.openai.com/docs/guides/text-generation/chat-completions-api"
+          href="https://platform.openai.com/docs/guides/text-generation/chat-completions-api?utm_source=bolajiayodeji.com"
           target="_blank"
           rel="noopener noreferrer"
         >
-          OpenAI&apos;s GPT-3 Chats Completions API
+          OpenAI&apos;s GPT-3 Chat Completions API
         </a>
         , and{" "}
         <a
-          href="https://github.com/elevenlabs/elevenlabs-js"
+          href="https://elevenlabs.io/docs/api-reference/text-to-speech?utm_source=bolajiayodeji.com"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -23,7 +23,7 @@ export default function Home() {
         .
       </p>
 
-      <div className="grid gap-6 lg:gap-0 items-center lg:max-w-4xl lg:w-full grid-cols-3">
+      <div className="grid grid-cols-3 gap-6 lg:gap-0 items-center lg:max-w-4xl lg:w-full my-24">
         <a
           href="https://nextjs.org?utm_source=bolajiayodeji.com"
           target="_blank"
@@ -61,14 +61,14 @@ export default function Home() {
             src="/elevenlabs.svg"
             className="dark:invert"
             alt="Elevenlabs's Logo"
-            width={200}
+            width={250}
             height={10}
             priority
           />
         </a>
       </div>
 
-      <div className="mb-40 lg:mb-32 grid lg:grid-cols-3 text-center lg:max-w-5xl lg:w-full lg:text-left">
+      <div className="mb-20 lg:mb-32 grid lg:grid-cols-3 text-center lg:max-w-5xl lg:w-full lg:text-left">
         <a
           href="/chat"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
@@ -120,17 +120,17 @@ export default function Home() {
         </a>
       </div>
 
-      <div className="fixed bottom-0 w-full lg:w-2/4 my-8">
-        <hr className="my-4 lg:my-0 border-gray-600 pb-6" />
+      <div className="fixed bottom-0 w-full lg:w-2/4 py-4 bg-black">
+        <hr className="my-4 lg:my-0 border-gray-600 pb-0 lg:pb-4" />
         <Image
           src="/fav.svg"
-          className="mx-auto"
+          className="hidden lg:block mx-auto"
           alt="Chat With Siri Logo"
           width={50}
           height={10}
         />
         <p className="text-center">
-          Chat With Siri | &copy;{" "}
+          &copy;{" "}
           <a
             href="https://bolajiayodeji.com"
             target="_blank"

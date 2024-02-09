@@ -1,7 +1,6 @@
 "use client";
 
-import { useState, useEffect, useRef, useTransition } from "react";
-import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
 import { userRole, botRole, Message, Voice } from "@/app/types/chat";
 import ChatVoice from "@/app/components/chatVoice";
 import ChatMessages from "@/app/components/chatMessages";
