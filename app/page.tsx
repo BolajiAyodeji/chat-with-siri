@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between p-8">
-      <p className="text-center text-lg border-b border-gray-600 pb-6 pt-8 backdrop-blur-2xl lg:static lg:w-auto lg:rounded-xl lg:border lg:p-4">
+      <p className="text-center text-lg border-b border-gray-600 pb-6 pt-8 backdrop-blur-2xl lg:rounded-xl lg:border lg:p-4">
         A simple full-stack text-to-speech chatbot built using Nextjs,{" "}
         <a
           href="https://platform.openai.com/docs/guides/text-generation/chat-completions-api"
