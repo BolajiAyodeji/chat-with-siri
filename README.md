@@ -2,7 +2,7 @@
 
 ![](./public/logo.svg)
 
-A simple full-stack text-to-speech demo chatbot built using Nextjs, OpenAI's GPT-3 Chat Completions API, and ElevenLabs' Text-to-Speech API.
+A simple full-stack text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completions API, and ElevenLabs' Text-to-Speech API.
 
 </div>
 
