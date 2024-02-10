@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { userRole, botRole, Message, Voice } from "@/app/types/chat";
+import { userRole, botRole, Message } from "@/app/types/chat";
 import ChatVoice from "@/app/components/chatVoice";
 import ChatMessages from "@/app/components/chatMessages";
 import ChatInput from "@/app/components/chatInput";

@@ -15,8 +15,13 @@ export interface Voice {
     gender: string;
   };
 }
+export interface ChatVoiceProps {
+  voices: Voice[];
+  selectedVoice: string;
+  setSelectedVoice: (voice: string) => void;
+}
 
-export interface ChatInput {
+export interface ChatInputProps {
   audioRef: React.RefObject<HTMLAudioElement>;
   input: string;
   setInput: (input: string) => void;
@@ -24,10 +29,4 @@ export interface ChatInput {
   loading: boolean;
   sendMessage: (e: React.FormEvent<HTMLFormElement>) => void;
   clearMessages: () => void;
-}
-
-export interface ChatVoiceProps {
-  voices: Voice[];
-  selectedVoice: string;
-  setSelectedVoice: (voice: string) => void;
 }

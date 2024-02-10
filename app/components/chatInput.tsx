@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { ChatInput } from "@/app/types/chat";
+import type { ChatInputProps } from "@/app/types/chat";
 
 export default function ChatInput({
   audioRef,
@@ -9,7 +9,7 @@ export default function ChatInput({
   loading,
   sendMessage,
   clearMessages,
-}: ChatInput) {
+}: ChatInputProps) {
   return (
     <div className="flex flex-col items-center w-full fixed bottom-0 pb-2 pt-6 bg-black">
       <audio ref={audioRef} controls className="mb-2 hidden" />
