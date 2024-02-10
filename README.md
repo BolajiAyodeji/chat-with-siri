@@ -2,7 +2,7 @@
 
 ![](./public/logo.svg)
 
-A simple full-stack text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completions API, and ElevenLabs' Text-to-Speech API.
+A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completions API, and ElevenLabs' Text-to-Speech API.
 
 </div>
 
@@ -17,6 +17,17 @@ A simple full-stack text-to-speech chatbot demo built using Nextjs, OpenAI's GPT
 * [x] A user can change the voice of the audio response (40+ options).
 * [x] Chat history is saved to local storage.
 * [x] One-click deployment configuration to Vercel and Netlify.
+
+## Todo
+
+Some things to experiment with and add in a v2 in the future when I have the time:
+
+* [ ] Stream the text response from OpenAI (a demo of this already exists [here]()).
+* [ ] Stream the audio response from ElevenLabs.
+* [ ] Pass the stream chunks from OpenAI directly to ElevenLabs.
+* [ ] Connect the audio stream to the UI.
+* [ ] Increase the response tokens and characters.
+* [ ] Option to choose language translation of the audio response.
 
 ## Important Files and Folders
 
@@ -53,24 +64,13 @@ pnpm dev
 bun dev
 ```
 
-3. Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+3. Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the result.
 4. You can start modifying any page (`app/page.tsx` for example) and the will auto-update as you edit the file.
 5. All good!
 
 ## Deployment
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBolajiAyodeji%2Fchat-with-siri&env=OPENAI_API_KEY,ELEVENLABS_API_KEY&envDescription=API%20keys%20needed%20for%20the%20application) [![Deploy to Netlify](https://netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bolajiayodeji/chat-with-siri#OPENAI_API_KEY=,ELEVENLABS_API_KEY=)
-
-## Todo
-
-Some things to experiment with and add in a v2 in the future when I have the time:
-
-* [ ] Stream the text response from OpenAI.
-* [ ] Stream the audio response from ElevenLabs.
-* [ ] Pass the stream chunks from OpenAI directly to ElevenLabs.
-* [ ] Connect the audio stream to the UI.
-* [ ] Increase the response tokens and characters.
-* [ ] Option to choose language translation of the audio response.
 
 ## Contributors Guide
 
