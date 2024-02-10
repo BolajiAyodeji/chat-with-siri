@@ -5,17 +5,18 @@ export default function ChatMessages({ messages }: { messages: Message[] }) {
   return (
     <div className="absolute w-full lg:w-2/4 mt-52 lg:mt-24 pb-60 px-6 border-0 lg:border-x-2 lg:border-white">
       {messages.length === 0 ? (
-        <div className="flex flex-col items-center">
+        <div className="flex flex-col items-center mt-20 lg:mt-40">
           <Image
-            src="/logo-blue.svg"
+            src="/logo.svg"
             className=""
             alt="Chat With Siri Logo"
             width={800}
             height={10}
             priority
           />
-          <h2 className="text-xl lg:text-2xl -mt-24 lg:-mt-60">
-            How can I help you today? 😉🤖
+          <h2 className="text-xl lg:text-2xl mt-12">
+            How can I help you today? <span className="animate-pulse">😉</span>
+            <span className="animate-pulse">🤖</span>
           </h2>
         </div>
       ) : (
