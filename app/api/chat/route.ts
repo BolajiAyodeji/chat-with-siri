@@ -5,6 +5,8 @@ export const runtime = "edge";
 export async function POST(req: Request) {
   const { messages } = await req.json();
 
+  // Hack: add a custom prompt to reduce the number of characters of the response.
+  // To maximize API credits and reduce the response time.
   messages.map((message: Message) => {
     if (message.role === "user") {
       message.content = `Given the question: "${message.content}", kindly generate a suitable response with less than 50 characters.`;
