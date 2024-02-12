@@ -71,11 +71,11 @@ export default function Home() {
       <div className="mb-20 lg:mb-32 grid lg:grid-cols-3 text-center lg:max-w-5xl lg:w-full lg:text-left">
         <a
           href="/chat"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300"
         >
           <h2 className={`mb-3 text-2xl font-semibold text-blue-500`}>
             Chat With Siri{" "}
-            <span className="ml-4 inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
+            <span className="ml-4 animate-bounce inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
               ➤
             </span>
           </h2>
@@ -86,7 +86,7 @@ export default function Home() {
         </a>
         <a
           href="#"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -103,7 +103,7 @@ export default function Home() {
 
         <a
           href="https://github.com/BolajiAyodeji/chat-with-siri"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
+          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -120,7 +120,7 @@ export default function Home() {
         </a>
       </div>
 
-      <div className="fixed bottom-0 w-full lg:w-2/4 py-4 bg-black">
+      <div className="fixed bottom-0 w-full lg:w-2/4 py-4 bg-gray-900">
         <hr className="my-4 lg:my-0 border-gray-600 pb-0 lg:pb-4" />
         <Image
           src="/fav.svg"

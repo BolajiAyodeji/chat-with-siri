@@ -11,7 +11,7 @@ export default function ChatInput({
   clearMessages,
 }: ChatInputProps) {
   return (
-    <div className="flex flex-col items-center w-full fixed bottom-0 pb-2 pt-6 bg-black">
+    <div className="flex flex-col items-center w-full fixed bottom-0 pb-2 pt-6 bg-gray-900">
       <audio ref={audioRef} controls className="mb-2 hidden" />
       <form onSubmit={sendMessage} className="mb-4">
         <label className="hidden" htmlFor="message">

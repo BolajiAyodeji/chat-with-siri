@@ -6,14 +6,14 @@ export default function ChatVoice({
   setSelectedVoice,
 }: ChatVoiceProps) {
   return (
-    <div className="flex flex-col w-full z-10 fixed top-0 items-center pt-8 bg-black">
+    <div className="flex flex-col w-full z-10 fixed top-0 items-center pt-8 bg-gray-900">
       <label className="mb-2" htmlFor="voices">
         Change Siri&apos;s Voice:
       </label>
       <select
         id="voices"
         name="voices"
-        className="w-4/4 text-blue-500 appearance-none bg-black border border-white p-2 text-center"
+        className="w-4/4 text-blue-500 appearance-none bg-transparent border border-white p-2 text-center"
         value={selectedVoice}
         onChange={(e) => setSelectedVoice(e.target.value)}
       >
