@@ -15,8 +15,6 @@ export default function ChatPage() {
   const [loading, setLoading] = useState<boolean>(false);
   const audioRef = useRef<HTMLAudioElement>(null);
 
-  const customPrompt = `Given the question: "${input}", kindly generate a suitable response with less than 100 characters.`;
-
   const getOpenAIResponse = async (chatMessages: Message[]) => {
     const response = await fetch("/api/chat", {
       method: "POST",
