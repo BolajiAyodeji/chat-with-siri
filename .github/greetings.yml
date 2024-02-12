@@ -1,0 +1,13 @@
+name: Greetings
+
+on: [issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/first-interaction@v1
+        with:
+          repo-token: ${{ secrets.GH_TOKEN }}
+          issue-message: "Hey, @${{ github.actor }}! :wave: <br /><br /> We welcome all kinds of contributions, please feel free to contribute and/or ask questions. <br /> Someone will attend to your issue soon :relaxed:"
+          pr-message: "Hey, @${{ github.actor }}! :wave: <br /><br /> Thanks for submitting this PR; someone will review it soon :relaxed:"
