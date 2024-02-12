@@ -8,7 +8,9 @@ A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Com
 
 ![](./public/demo.png)
 
-Read [this comprehensive tutorial]() to learn how this was built and how you can build yours with even more features.
+> [!NOTE]
+>
+> Read [this comprehensive tutorial]() to learn how this was built and how you can build yours with even more features.
 
 </div>
 
