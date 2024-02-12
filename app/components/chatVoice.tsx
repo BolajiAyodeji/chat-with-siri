@@ -1,4 +1,4 @@
-import { Voice, ChatVoiceProps } from "@/app/types/chat";
+import { ChatVoiceProps } from "@/app/types/chat";
 
 export default function ChatVoice({
   voices,
@@ -19,8 +19,8 @@ export default function ChatVoice({
       >
         {voices &&
           voices
-            .sort((a: Voice, b: Voice) => a.name.localeCompare(b.name))
-            .map((voice: Voice) => (
+            .sort((a, b) => a.name.localeCompare(b.name))
+            .map((voice) => (
               <option key={voice.voice_id} value={voice.name}>
                 {voice.name} ({voice.labels.age} {voice.labels.accent}{" "}
                 {voice.labels.gender})

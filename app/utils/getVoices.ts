@@ -8,8 +8,8 @@ export default async function getVoices() {
   });
 
   try {
-    const voices = await elevenlabs.voices.getAll();
-    return voices;
+    const allVoices = await elevenlabs.voices.getAll();
+    return allVoices.voices;
   } catch (error) {
     console.error(error);
   }

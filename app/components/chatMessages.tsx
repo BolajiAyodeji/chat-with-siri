@@ -14,8 +14,8 @@ export default function ChatMessages({ messages }: { messages: Message[] }) {
             height={10}
             priority
           />
-          <h2 className="text-xl mt-12 animate-bounce">
-            Hi there! How can I help you today? 🤖😉
+          <h2 className="text-xl text-center mt-12 animate-none lg:animate-bounce">
+            Hi there! How can I help you today?
           </h2>
         </div>
       ) : (

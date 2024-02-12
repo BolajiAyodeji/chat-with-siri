@@ -1,3 +1,5 @@
+import { VoiceResponse } from "elevenlabs/api";
+
 export const userRole = "user";
 export const botRole = "assistant";
 
@@ -6,17 +8,8 @@ export interface Message {
   content: string;
 }
 
-export interface Voice {
-  voice_id: string;
-  name: string;
-  labels: {
-    age: string;
-    accent: string;
-    gender: string;
-  };
-}
 export interface ChatVoiceProps {
-  voices: Voice[];
+  voices: VoiceResponse[];
   selectedVoice: string;
   setSelectedVoice: (voice: string) => void;
 }

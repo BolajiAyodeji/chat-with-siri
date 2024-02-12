@@ -1,15 +1,16 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { userRole, botRole, Message } from "@/app/types/chat";
 import ChatVoice from "@/app/components/chatVoice";
 import ChatMessages from "@/app/components/chatMessages";
 import ChatInput from "@/app/components/chatInput";
 import getVoices from "@/app/utils/getVoices";
+import { userRole, botRole, Message } from "@/app/types/chat";
+import { VoiceResponse } from "elevenlabs/api";
 
 export default function ChatPage() {
-  const [voices, setVoices] = useState<any>([]);
-  const [selectedVoice, setSelectedVoice] = useState("Rachel");
+  const [voices, setVoices] = useState<VoiceResponse[]>([]);
+  const [selectedVoice, setSelectedVoice] = useState("Myra");
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
@@ -81,7 +82,7 @@ export default function ChatPage() {
 
     getVoices()
       .then((voices) => {
-        setVoices(voices?.voices);
+        setVoices(voices!);
       })
       .catch((error) => {
         throw new Error(error);

@@ -9,7 +9,7 @@ export async function POST(req: Request) {
   // To maximize API credits and reduce the response time.
   messages.map((message: Message) => {
     if (message.role === "user") {
-      message.content = `Given the question: "${message.content}", kindly generate a suitable response with less than 50 characters.`;
+      message.content = `Given the question: "${message.content}", kindly generate a suitable response with less than 100 characters.`;
     }
   });
 
@@ -22,7 +22,7 @@ export async function POST(req: Request) {
       },
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
-        max_tokens: 50,
+        max_tokens: 100,
         temperature: 0.7,
         n: 1,
         messages,
