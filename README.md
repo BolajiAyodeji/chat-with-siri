@@ -4,7 +4,8 @@
 
 A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completions API, and ElevenLabs' Text-to-Speech API.
 
-![](./public/flow-w.png)
+![](./public/flow-w.png#gh-dark-mode-only)
+![](./public/flow-w.png#gh-light-mode-only)
 
 </div>
 
@@ -22,7 +23,7 @@ A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Com
 
 <div align="center">
 
-![](./public/logo.svg)
+![](./public/demo.png)
 
 </div>
 
