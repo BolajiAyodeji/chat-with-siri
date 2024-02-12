@@ -19,6 +19,7 @@ export default function ChatInput({
         </label>
         <input
           type="text"
+          id="message"
           name="message"
           value={input}
           placeholder="What's on your mind?..."

@@ -4,6 +4,8 @@
 
 A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completions API, and ElevenLabs' Text-to-Speech API.
 
+![](./public/flow-w.png)
+
 </div>
 
 ---
@@ -17,6 +19,12 @@ A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Com
 * [x] A user can change the voice of the audio response (40+ options).
 * [x] Chat history is saved to local storage.
 * [x] One-click deployment configuration to Vercel and Netlify.
+
+<div align="center">
+
+![](./public/logo.svg)
+
+</div>
 
 ## Todo
 
