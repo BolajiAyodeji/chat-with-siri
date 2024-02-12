@@ -104,8 +104,8 @@ To learn more about OpenAI's Chat Completions API, take a look at the following 
 To learn more about ElevenLabs' Text-to-Speech API, take a look at the following resources:
 
 * [ElevenLabs' Documentation](https://docs.elevenlabs.com) - learn about ElevenLabs' Text-to-Speech API features and API.
-* [ElevenLab's TypeScript SDK](https://github.com/elevenlabs/elevenlabs-js) - the official JavaScript library for ElevenLabs Text to Speech API.
-* [ElevenLab's Python SDK](https://github.com/elevenlabs/elevenlabs-python) - the official Python library for ElevenLabs Text to Speech API.
+* [ElevenLabs' TypeScript SDK](https://github.com/elevenlabs/elevenlabs-js) - the official JavaScript library for ElevenLabs Text to Speech API.
+* [ElevenLabs' Python SDK](https://github.com/elevenlabs/elevenlabs-python) - the official Python library for ElevenLabs Text to Speech API.
 
 ## License
 
