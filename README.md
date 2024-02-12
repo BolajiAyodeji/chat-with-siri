@@ -14,6 +14,13 @@ A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Com
 
 ## Features
 
+<div align="center">
+
+![](./public/flow-dark.png#gh-dark-mode-only)
+![](./public/flow-light.png#gh-light-mode-only)
+
+</div>
+
 * [x] A responsive, user-friendly, and performant UI built with TypeScript, Reactjs, Nextjs 14 App Router, Tailwind CSS, and ElevenLabs TypeScript SDK.
 * [x] A user can ask a question by text and get a text response.
 * [x] A user can ask a question by text and get an audio response.
@@ -21,13 +28,6 @@ A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Com
 * [x] A user can change the voice of the audio response (40+ options).
 * [x] Chat history is saved to local storage.
 * [x] One-click deployment configuration to Vercel and Netlify.
-
-<div align="center">
-
-![](./public/flow-dark.png#gh-dark-mode-only)
-![](./public/flow-light.png#gh-light-mode-only)
-
-</div>
 
 ## Todo
 
