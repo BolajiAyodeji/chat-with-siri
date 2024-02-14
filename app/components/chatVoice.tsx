@@ -29,7 +29,7 @@ export default function ChatVoice({
               </option>
             ))}
       </select>
-      <hr className="w-full lg:w-2/4 mt-6" />
+      <hr className="w-full lg:w-3/4 xl:w-2/4 mt-6" />
     </div>
   );
 }
