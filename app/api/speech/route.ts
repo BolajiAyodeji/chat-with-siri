@@ -11,9 +11,12 @@ export async function POST(req: Request) {
     const audio = await elevenlabs.generate({
       voice,
       model_id: "eleven_turbo_v2",
+      voice_settings: { similarity_boost: 0.5, stability: 0.5 },
       text: message,
       // stream: true,
     });
+
+    console.log(audio);
 
     return new Response(audio as any, {
       headers: { "Content-Type": "audio/mpeg" },

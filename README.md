@@ -56,11 +56,11 @@ Some things to experiment with and add in a v2 in the future when I have the tim
 | `/app/chat/route.ts`               | API route handler with Server Actions for communicating with OpenAI.       |
 | `/app/speech/route.ts`             | API route handler with Server Actions for communicating with ElevenLabs.   |
 | `/app/layout.tsx`                  | Shared UI for fonts and metadata configuration.                       |
-| `/app/page.tsx`                    | Home (`/`) page.                     |
-| `/app/chat/page.tsx`               | Chat (`/chat`) page.                 |
+| `/app/page.tsx`                    | Home page (`/`).                     |
+| `/app/chat/page.tsx`               | Chat page (`/chat`).                 |
 | `/app/components/chatVoice.tsx`    | React component for the change voice select section of the UI.            |
 | `/app/components/chatMessages.tsx` | React component for the chat messages section of the UI.                   |
-| `/app/components/chatInput.tsx`    | React component for the user input section of the UI.                   |
+| `/app/components/ChatControls.tsx` | React component for the user input and controls section of the UI.                   |
 | `/types/chat.ts`                   | Types for the entire project.     |
 | `/utils/getVoices.ts`              | Utility file to fetch voices from ElevenLabs.    |
 

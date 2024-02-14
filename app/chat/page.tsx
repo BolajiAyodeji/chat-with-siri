@@ -3,7 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import ChatVoice from "@/app/components/chatVoice";
 import ChatMessages from "@/app/components/chatMessages";
-import ChatInput from "@/app/components/chatInput";
+import ChatControls from "@/app/components/chatControls";
 import getVoices from "@/app/utils/getVoices";
 import { userRole, botRole, Message } from "@/app/types/chat";
 import { VoiceResponse } from "elevenlabs/api";
@@ -110,7 +110,7 @@ export default function ChatPage() {
             {...{ loading, voices, selectedVoice, setSelectedVoice }}
           />
           <ChatMessages {...{ messages }} />
-          <ChatInput
+          <ChatControls
             {...{
               audioRef,
               savedAudio,

@@ -15,7 +15,7 @@ export interface ChatVoiceProps {
   setSelectedVoice: (voice: string) => void;
 }
 
-export interface ChatInputProps {
+export interface ChatControlsProps {
   audioRef: React.RefObject<HTMLAudioElement>;
   savedAudio: boolean;
   input: string;
