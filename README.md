@@ -82,6 +82,10 @@ You can fork and deploy anywhere you want or use the one-click buttons below to 
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBolajiAyodeji%2Fchat-with-siri&env=OPENAI_API_KEY,ELEVENLABS_API_KEY&envDescription=API%20keys%20needed%20for%20the%20application) [![Deploy to Netlify](https://netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bolajiayodeji/chat-with-siri#OPENAI_API_KEY=,ELEVENLABS_API_KEY=)
 
+## Repo Stats Summary
+
+![GitHub Repository Statistics](https://repobeats.axiom.co/api/embed/1657554edd83178251445508d38da1b9f03832a6.svg "Repobeats analytics image")
+
 ## Contributors Guide
 
 1. Fork [this repository](https://github.com/BolajiAyodeji/chat-with-siri) (learn how to do this [here](https://help.github.com/articles/fork-a-repo)).
