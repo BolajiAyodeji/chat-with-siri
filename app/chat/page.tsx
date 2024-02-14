@@ -9,12 +9,13 @@ import { userRole, botRole, Message } from "@/app/types/chat";
 import { VoiceResponse } from "elevenlabs/api";
 
 export default function ChatPage() {
+  const audioRef = useRef<HTMLAudioElement>(null);
   const [voices, setVoices] = useState<VoiceResponse[]>([]);
   const [selectedVoice, setSelectedVoice] = useState("Myra");
   const [input, setInput] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-  const audioRef = useRef<HTMLAudioElement>(null);
+  const [savedAudio, setSavedAudio] = useState<boolean>(false);
 
   const getOpenAIResponse = async (chatMessages: Message[]) => {
     const response = await fetch("/api/chat", {
@@ -60,7 +61,6 @@ export default function ChatPage() {
     reader.onload = () => {
       if (audioRef.current) {
         audioRef.current.src = reader.result as string;
-        console.log(reader.result);
         audioRef.current.play();
       }
     };
@@ -68,6 +68,7 @@ export default function ChatPage() {
 
     setMessages([...chatMessages, { role: botRole, content: botChatResponse }]);
     setLoading(false);
+    setSavedAudio(true);
   };
 
   const clearMessages = async () => {
@@ -77,8 +78,10 @@ export default function ChatPage() {
 
   useEffect(() => {
     const savedMessages = localStorage.getItem("chatMessages");
-    if (savedMessages) {
-      setMessages(JSON.parse(savedMessages));
+    const savedVoice = localStorage.getItem("selectedVoice");
+    if (savedMessages || savedVoice) {
+      setMessages(JSON.parse(savedMessages!));
+      setSelectedVoice(savedVoice!);
     }
 
     getVoices()
@@ -93,18 +96,22 @@ export default function ChatPage() {
   useEffect(() => {
     if (messages.length !== 0) {
       localStorage.setItem("chatMessages", JSON.stringify(messages));
+      localStorage.setItem("selectedVoice", selectedVoice);
     }
-  }, [messages]);
+  }, [messages, selectedVoice]);
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-between py-4 px-4 lg:px-0">
-      {voices.length > 0 ? (
+      {voices.length === 0 ? (
+        <p className="text-white text-9xl animate-ping">...</p>
+      ) : (
         <>
           <ChatVoice {...{ voices, selectedVoice, setSelectedVoice }} />
-          <ChatMessages messages={messages} />
+          <ChatMessages {...{ messages }} />
           <ChatInput
             {...{
               audioRef,
+              savedAudio,
               input,
               setInput,
               messages,
@@ -114,8 +121,6 @@ export default function ChatPage() {
             }}
           />
         </>
-      ) : (
-        <p className="text-white text-9xl animate-ping">...</p>
       )}
     </main>
   );

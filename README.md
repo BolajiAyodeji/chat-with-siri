@@ -25,11 +25,13 @@ A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Com
 
 </div>
 
-* [x] A responsive, user-friendly, and performant UI built with TypeScript, Reactjs, Nextjs 14 App Router, Tailwind CSS, and ElevenLabs TypeScript SDK.
-* [x] A user can ask a question by text and get a text response.
-* [x] A user can ask a question by text and get an audio response.
-* [x] A user can start a new chat session.
-* [x] A user can change the voice of the audio response (40+ options).
+* [x] A responsive, user-friendly, and performant UI built with TypeScript, Reactjs, Nextjs App Router, Tailwind CSS, and ElevenLabs TypeScript SDK.
+* [x] User can ask a question by text and get a text response.
+* [x] User can ask a question by text and get an audio response.
+* [x] User can change the voice of the audio response (40+ options).
+* [x] User can start a new chat session.
+* [x] User can replay the last audio response.
+* [x] Voice settings is saved to local storage.
 * [x] Chat history is saved to local storage.
 * [x] One-click deployment configuration to Vercel and Netlify.
 
@@ -38,11 +40,10 @@ A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Com
 Some things to experiment with and add in a v2 in the future when I have the time:
 
 * [ ] Allow the user to terminate the process when the response is loading (refactor the current loading indicator to a stop button).
-* [ ] Allow user to replay last audio response.
 * [ ] Theme toggle for light mode.
 * [ ] Stream the text response from OpenAI (a demo of this already exists [here]()).
-* [ ] Stream the audio response from ElevenLabs.
 * [ ] Pass the stream chunks from OpenAI directly to ElevenLabs.
+* [ ] Stream the audio response from ElevenLabs.
 * [ ] Connect the audio stream to the UI.
 * [ ] Increase the response tokens and characters.
 * [ ] Option to choose language translation of the audio response.

@@ -21,7 +21,7 @@ export async function POST(req: Request) {
   } catch (error) {
     console.error(error);
     return Response.json(
-      "Sorry, I do not understand. Kindly check your logs for the error."
+      "Something went wrong. Kindly check your logs for errors."
     );
   }
 }

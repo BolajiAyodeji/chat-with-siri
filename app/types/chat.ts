@@ -16,6 +16,7 @@ export interface ChatVoiceProps {
 
 export interface ChatInputProps {
   audioRef: React.RefObject<HTMLAudioElement>;
+  savedAudio: boolean;
   input: string;
   setInput: (input: string) => void;
   messages: Message[];

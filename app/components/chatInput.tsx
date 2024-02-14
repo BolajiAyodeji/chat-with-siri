@@ -3,6 +3,7 @@ import type { ChatInputProps } from "@/app/types/chat";
 
 export default function ChatInput({
   audioRef,
+  savedAudio,
   input,
   setInput,
   messages,
@@ -35,21 +36,34 @@ export default function ChatInput({
           {loading ? <p className="animate-spin">⏳</p> : "Ask Siri"}
         </button>
       </form>
-      <button
-        title="Start new chat"
-        onClick={clearMessages}
-        className={`p-2 ${
-          messages.length > 0 ? `block` : `hidden`
-        } border-white text-black`}
-      >
-        <Image
-          src="/plus.svg"
-          alt="Plus Icon"
-          width={40}
-          height={24}
-          priority
-        />
-      </button>
+      <div className={`flex ${messages.length > 0 ? `block` : `hidden`}`}>
+        <button
+          title="Replay audio response"
+          disabled={!savedAudio}
+          onClick={() => audioRef.current && audioRef.current.play()}
+        >
+          <Image
+            src="/play.svg"
+            alt="Plus Icon"
+            width={40}
+            height={24}
+            priority
+          />
+        </button>
+        <button
+          title="Start new chat"
+          onClick={clearMessages}
+          className="p-2 border-white text-black"
+        >
+          <Image
+            src="/plus.svg"
+            alt="Plus Icon"
+            width={40}
+            height={24}
+            priority
+          />
+        </button>
+      </div>
     </div>
   );
 }
