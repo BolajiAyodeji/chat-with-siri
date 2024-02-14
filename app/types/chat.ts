@@ -9,6 +9,7 @@ export interface Message {
 }
 
 export interface ChatVoiceProps {
+  loading: boolean;
   voices: VoiceResponse[];
   selectedVoice: string;
   setSelectedVoice: (voice: string) => void;

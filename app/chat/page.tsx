@@ -106,7 +106,9 @@ export default function ChatPage() {
         <p className="text-white text-9xl animate-ping">...</p>
       ) : (
         <>
-          <ChatVoice {...{ voices, selectedVoice, setSelectedVoice }} />
+          <ChatVoice
+            {...{ loading, voices, selectedVoice, setSelectedVoice }}
+          />
           <ChatMessages {...{ messages }} />
           <ChatInput
             {...{

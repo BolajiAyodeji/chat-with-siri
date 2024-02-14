@@ -1,6 +1,7 @@
 import { ChatVoiceProps } from "@/app/types/chat";
 
 export default function ChatVoice({
+  loading,
   voices,
   selectedVoice,
   setSelectedVoice,
@@ -15,6 +16,7 @@ export default function ChatVoice({
         name="voices"
         className="w-4/4 text-blue-500 appearance-none bg-transparent border border-white p-2 text-center"
         value={selectedVoice}
+        disabled={loading}
         onChange={(e) => setSelectedVoice(e.target.value)}
       >
         {voices &&

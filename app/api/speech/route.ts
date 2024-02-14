@@ -12,7 +12,7 @@ export async function POST(req: Request) {
       voice,
       model_id: "eleven_turbo_v2",
       text: message,
-      stream: true,
+      // stream: true,
     });
 
     return new Response(audio as any, {
