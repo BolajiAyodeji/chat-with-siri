@@ -39,7 +39,7 @@ A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Com
 
 Some things to experiment with and add in a v2 in the future when I have the time:
 
-* [ ] Allow the user to terminate the process when the response is loading (refactor the current loading indicator to a stop button).
+* [ ] Allow process termination when a response is loading (refactor the current loading indicator to a stop button).
 * [ ] Theme toggle for light mode.
 * [ ] Stream the text response from OpenAI (a demo of this already exists [here]()).
 * [ ] Pass the stream chunks from OpenAI directly to ElevenLabs.
@@ -69,12 +69,12 @@ Some things to experiment with and add in a v2 in the future when I have the tim
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). To get started:
 
 1. Rename the `.env.example` file to `.env.local` and fill in the required environment variables.
-    * `NEXT_PUBLIC_OPENAI_API_KEY` - OpenAI API key ([sign up and get one here](https://platform.openai.com/api-keys)).
-    * `NEXT_PUBLIC_ELEVENLABS_API_KEY` - ElevenLabs API key ([sign up and get one here](http://elevenlabs.io/?from=bolajiayodeji2995)).
-2. Install all required dependencies with the command `npm install` (or use other package managers like `yarn` and `pnpm`).
+    * `OPENAI_API_KEY` - OpenAI API key ([sign up and get one here](https://platform.openai.com/api-keys)).
+    * `ELEVENLABS_API_KEY` - ElevenLabs API key ([sign up and get one here](http://elevenlabs.io/?from=bolajiayodeji2995)).
+2. Install all required dependencies with the `npm install` command (or use other package managers like `yarn` and `pnpm`).
 3. Run the development server with the command `npm run dev`.
 4. Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the result.
-5. All good! You can start modifying any page (e.g., `app/page.tsx`) and the app will auto-update as you edit the file.
+5. All good! You can start modifying any page (e.g., `app/page.tsx`) and the app will auto-update.
 
 ## Deployment
 
