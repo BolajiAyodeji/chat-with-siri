@@ -10,16 +10,18 @@ export async function POST(req: Request) {
   try {
     const audio = await elevenlabs.generate({
       voice,
-      model_id: "eleven_multilingual_v2",
+      model_id: "eleven_turbo_v2",
       text: message,
       stream: true,
     });
 
     return new Response(audio as any, {
-      headers: { "content-type": "audio/mpeg" },
+      headers: { "Content-Type": "audio/mpeg" },
     });
   } catch (error) {
     console.error(error);
-    return Response.json({ output: "Sorry, I do not understand." });
+    return Response.json(
+      "Sorry, I do not understand. Kindly check your logs for the error."
+    );
   }
 }

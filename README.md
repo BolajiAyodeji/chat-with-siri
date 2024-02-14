@@ -37,13 +37,15 @@ A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Com
 
 Some things to experiment with and add in a v2 in the future when I have the time:
 
+* [ ] Allow the user to terminate the process when the response is loading (refactor the current loading indicator to a stop button).
+* [ ] Allow user to replay last audio response.
+* [ ] Theme toggle for light mode.
 * [ ] Stream the text response from OpenAI (a demo of this already exists [here]()).
 * [ ] Stream the audio response from ElevenLabs.
 * [ ] Pass the stream chunks from OpenAI directly to ElevenLabs.
 * [ ] Connect the audio stream to the UI.
 * [ ] Increase the response tokens and characters.
 * [ ] Option to choose language translation of the audio response.
-* [ ] Theme toggle for light mode.
 
 ## Important Files and Folders
 

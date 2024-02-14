@@ -26,7 +26,7 @@ export default function ChatPage() {
     });
 
     const data = await response.json();
-    return data.textOutput;
+    return data;
   };
 
   const getElevenLabsResponse = async (text: string) => {
@@ -56,10 +56,11 @@ export default function ChatPage() {
     const botChatResponse = await getOpenAIResponse(chatMessages);
     const botVoiceResponse = await getElevenLabsResponse(botChatResponse);
 
-    let reader = new FileReader();
+    const reader = new FileReader();
     reader.onload = () => {
       if (audioRef.current) {
         audioRef.current.src = reader.result as string;
+        console.log(reader.result);
         audioRef.current.play();
       }
     };

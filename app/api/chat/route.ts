@@ -29,14 +29,16 @@ export async function POST(req: Request) {
       }),
     });
     const data = await res.json();
-    const textOutput = data.choices[0]?.message?.content?.trim();
+    const output = data.choices[0]?.message?.content?.trim();
 
     // Demo test response
-    // const textOutput = "Hello, I am Siri.";
+    // const output = "Hello, I am Siri.";
 
-    return Response.json({ textOutput });
+    return Response.json(output);
   } catch (error) {
     console.error(error);
-    return Response.json({ textOutput: "Sorry, I do not understand." });
+    return Response.json(
+      "Sorry, I do not understand. Kindly check your logs for the error."
+    );
   }
 }
