@@ -1,3 +1,4 @@
+import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
@@ -59,7 +60,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={ibm.className}>{children}</body>
+      <body className={ibm.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }

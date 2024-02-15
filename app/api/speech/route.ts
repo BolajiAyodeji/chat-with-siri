@@ -16,8 +16,6 @@ export async function POST(req: Request) {
       // stream: true,
     });
 
-    console.log(audio);
-
     return new Response(audio as any, {
       headers: { "Content-Type": "audio/mpeg" },
     });
