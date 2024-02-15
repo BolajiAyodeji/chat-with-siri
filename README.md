@@ -26,20 +26,19 @@ A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Com
 </div>
 
 * [x] A responsive, user-friendly, and performant UI built with TypeScript, Reactjs, Nextjs App Router, Tailwind CSS, and ElevenLabs TypeScript SDK.
-* [x] User can ask a question by text and get a text response.
-* [x] User can ask a question by text and get an audio response.
-* [x] User can change the voice of the audio response (40+ options).
-* [x] User can start a new chat session.
-* [x] User can replay the last audio response.
-* [x] Voice settings is saved to local storage.
-* [x] Chat history is saved to local storage.
+* [x] Users can ask a question by text and get a text response.
+* [x] Users can ask a question by text and get an audio response.
+* [x] Users can change the voice of the audio response (40+ options).
+* [x] Users can replay the last audio response.
+* [x] Users can start a new chat session.
+* [x] Chat history and voice settings are saved to local storage.
 * [x] One-click deployment configuration to Vercel and Netlify.
 
 ## Todo
 
 Some things to experiment with and add in a v2 in the future when I have the time:
 
-* [ ] Make live demo public and allow users to enter their API keys.
+* [ ] Deploy a public live demo and allow users to enter their API keys (if they want).
 * [ ] Allow process termination when a response is loading (refactor the current loading indicator to a stop button).
 * [ ] Theme toggle for light mode.
 * [ ] Stream the text response from OpenAI (a demo of this already exists but I need to clean things up).
@@ -47,7 +46,7 @@ Some things to experiment with and add in a v2 in the future when I have the tim
 * [ ] Stream the audio response from ElevenLabs.
 * [ ] Connect the audio stream to the UI.
 * [ ] Increase the response tokens and characters.
-* [ ] Add an option to choose the language translation of the audio response.
+* [ ] Add an option to choose the language translation of the audio response (switch to the `eleven _multilingual_v2` model).
 
 ## Important Files and Folders
 
@@ -72,9 +71,13 @@ This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-
 1. Rename the `.env.example` file to `.env.local` and fill in the required environment variables.
     * `OPENAI_API_KEY` - OpenAI API key ([sign up and get one here](https://platform.openai.com/api-keys)).
     * `ELEVENLABS_API_KEY` - ElevenLabs API key ([sign up and get one here](http://elevenlabs.io/?from=bolajiayodeji2995)).
+
 2. Install all required dependencies with the `npm install` command (or use other package managers like `yarn` and `pnpm`).
+
 3. Run the development server with the command `npm run dev`.
+
 4. Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the result.
+
 5. All good! You can start modifying any page (e.g., `app/page.tsx`) and the app will auto-update.
 
 ## Deployment

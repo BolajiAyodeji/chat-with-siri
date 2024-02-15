@@ -17,7 +17,7 @@ export default function ChatVoice({
         className="w-4/4 text-blue-500 appearance-none bg-transparent border border-white p-2 text-center"
         value={selectedVoice}
         disabled={loading}
-        onChange={(e) => setSelectedVoice(e.target.value)}
+        onChange={(event) => setSelectedVoice(event.target.value)}
       >
         {voices &&
           voices
