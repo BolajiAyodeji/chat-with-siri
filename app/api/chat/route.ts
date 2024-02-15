@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     const data = await res.json();
     const output = data.choices[0]?.message?.content?.trim();
 
-    // Demo test response
+    // Demo response (for testing purposes)
     // const output = "Hello, I am Siri.";
 
     return Response.json(output);
