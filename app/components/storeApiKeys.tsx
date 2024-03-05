@@ -101,7 +101,7 @@ export default function StoreApiKeys({
           </button>
         </form>
       </div>
-      <hr className="w-full lg:w-3/4 xl:w-2/4 mt-6" />
+      <hr className="w-full lg:w-3/4 xl:w-2/4 mt-0 lg:mt-8" />
     </>
   );
 }

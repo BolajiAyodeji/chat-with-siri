@@ -149,12 +149,12 @@ export default function ChatPage() {
         <p className="text-white text-9xl animate-ping">...</p>
       ) : (
         <>
-          <div className="flex flex-col w-full z-10 fixed top-0 text-center items-center pt-8 bg-gray-900">
+          <div className="flex flex-col w-full z-10 fixed top-0 text-center items-center pt-3 bg-gray-900">
             <StoreApiKeys {...{ setOpenAiKey, setElevenLabsKey }} />
             <ChatVoice {...{ voices, selectedVoice, setSelectedVoice }} />
           </div>
           <ChatMessages {...{ messages }} />
-          <div className="flex flex-col items-center w-full fixed bottom-0 pb-2 pt-6 bg-gray-900">
+          <div className="flex flex-col items-center w-full fixed bottom-0 pb-2 pt-2 bg-gray-900">
             <ChatControls
               {...{
                 audioRef,

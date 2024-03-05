@@ -3,7 +3,7 @@ import type { ChatMessagesProps } from "@/app/types/chat";
 
 export default function ChatMessages({ messages }: ChatMessagesProps) {
   return (
-    <div className="absolute mt-80 lg:mt-60 pt-16 pb-60 px-6 w-full lg:w-3/4 xl:w-2/4 border-0 lg:border-x-2 lg:border-white">
+    <div className="absolute mt-48 lg:mt-60 pt-16 pb-60 px-6 w-full lg:w-3/4 xl:w-2/4 border-0 lg:border-x-2 lg:border-white">
       {messages && messages.length === 0 ? (
         <div className="flex flex-col items-center">
           <Image

@@ -9,7 +9,7 @@ export default function notifyUser(
     position: "top-right",
     theme: "light",
     autoClose: 5000,
-    hideProgressBar: false,
+    hideProgressBar: true,
     closeOnClick: true,
     pauseOnHover: true,
     draggable: true,

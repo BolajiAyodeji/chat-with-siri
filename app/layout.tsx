@@ -64,7 +64,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={ibm.className}>
         {children}
-        <ToastContainer />
+        <ToastContainer stacked />
         <Analytics />
       </body>
     </html>
