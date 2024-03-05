@@ -107,10 +107,15 @@ You can fork and deploy anywhere you want or use the one-click buttons below to 
 
 To enable users or even non-developers to test the application in production if they want to, I've added a form where they can enter their API keys for both OpenAI and ElevenLabs (so I don't have to cover the costs and deal with request overload—this is a basic demo for now). This is a good way for anyone to test the application without having to clone and run it locally.
 
-> [!INFO]
-> To create both API keys (if you don't have one already), kndly read this section of [the tutorial]() (TBA). Once you have the keys, you can enter them in the form and start chatting with Siri :).
+> [!NOTE]
+>
+> To create both API keys (if you don't have one already), kndly read this section of [the tutorial]() (TBA).
 
-**Both API keys are stored in [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) and are not saved to any database (they're stored on your local computer and you can [read the code](./app/components/storeApiKeys.tsx) yourself). They are also not sent to any server or third-party service**. The keys are only used to make API requests on your behalf each time you want to use the app. This is safe and secure for anyone to use if you guarantee that no one else has access to your computer or browser. I used `sessionStorage` and not `localStorage` so that the keys are cleared when you close the browser tab or window. This is a good way to ensure that your keys are not stored for a long time and are not accessible to anyone else. You can always enter the keys again when next you want to use the app :).
+Once you have the keys, you can enter them in the form and start chatting with Siri :).
+
+> [!WARNING]
+>
+> **Both API keys are stored in [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) and are not saved to any database (they're stored on your local computer and you can [read the code](./app/components/storeApiKeys.tsx) yourself). They are also not sent to any server or third-party service**. The keys are only used to make API requests on your behalf each time you want to use the app. This is safe and secure for anyone to use if you guarantee that no one else has access to your computer or browser. I used `sessionStorage` and not `localStorage` so that the keys are cleared when you close the browser tab or window. This is a good way to ensure that your keys are not stored for a long time and are not accessible to anyone else. You can always enter the keys again when next you want to use the app :).
 
 ## Repo Stats Summary
 
@@ -133,3 +138,9 @@ git clone https://github.com/<your username>/chat-with-siri.git && cd chat-with-
 ## License
 
 This repository is published under the [MIT](LICENSE) license.
+
+---
+
+<div align="center">
+<a href="https://bolajiayodeji.com" target="_blank" rel="noopener noreferrer"><img src="https://bolajiayodeji.com/favicon.png" width="30" /></a>
+</div>
