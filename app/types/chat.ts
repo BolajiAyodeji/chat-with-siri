@@ -8,20 +8,31 @@ export interface Message {
   content: string;
 }
 
+export interface StoreApiKeysProps {
+  setOpenAiKey: (voice: string) => void;
+  setElevenLabsKey: (voice: string) => void;
+}
+
 export interface ChatVoiceProps {
-  loading: boolean;
   voices: VoiceResponse[];
   selectedVoice: string;
   setSelectedVoice: (voice: string) => void;
 }
 
+export interface ChatMessagesProps {
+  messages: Message[];
+}
+
+export interface ChatInputProps {
+  input: string;
+  setInput: (input: string) => void;
+  loading: boolean;
+  sendMessage: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+
 export interface ChatControlsProps {
   audioRef: React.RefObject<HTMLAudioElement>;
   savedAudio: boolean;
-  input: string;
-  setInput: (input: string) => void;
   messages: Message[];
-  loading: boolean;
-  sendMessage: (e: React.FormEvent<HTMLFormElement>) => void;
   clearMessages: () => void;
 }

@@ -1,16 +1,16 @@
 import Image from "next/image";
-import type { Message } from "@/app/types/chat";
+import type { ChatMessagesProps } from "@/app/types/chat";
 
-export default function ChatMessages({ messages }: { messages: Message[] }) {
+export default function ChatMessages({ messages }: ChatMessagesProps) {
   return (
-    <div className="absolute w-full lg:w-3/4 xl:w-2/4 border-0 lg:border-x-2 lg:border-white mt-52 lg:mt-24 pb-60 px-6">
-      {messages.length === 0 ? (
-        <div className="flex flex-col items-center mt-20 lg:mt-40">
+    <div className="absolute mt-80 lg:mt-60 pt-16 pb-60 px-6 w-full lg:w-3/4 xl:w-2/4 border-0 lg:border-x-2 lg:border-white">
+      {messages && messages.length === 0 ? (
+        <div className="flex flex-col items-center">
           <Image
             src="/logo.svg"
-            className=""
+            className="mt-20"
             alt="Chat With Siri Logo"
-            width={800}
+            width={650}
             height={10}
             priority
           />
@@ -20,7 +20,7 @@ export default function ChatMessages({ messages }: { messages: Message[] }) {
         </div>
       ) : (
         messages.map((message, index) => (
-          <div key={index} className="mb-8 mt-0 lg:mt-12">
+          <div key={index} className="my-10">
             {message.role === "assistant" ? (
               <div className="flex">
                 <Image
