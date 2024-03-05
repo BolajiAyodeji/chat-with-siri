@@ -8,8 +8,11 @@
 }
 
 textarea,
-input {
+input,
+select {
   -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border-radius: 0;
 }
 
