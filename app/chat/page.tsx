@@ -36,6 +36,7 @@ export default function ChatPage() {
         "Your OpenAI API Key is invalid. Kindly check and try again.",
         {
           type: "error",
+          autoClose: 5000,
         }
       );
     }
@@ -62,6 +63,7 @@ export default function ChatPage() {
         "Your ElevenLabs API Key is invalid. Kindly check and try again.",
         {
           type: "error",
+          autoClose: 5000,
         }
       );
     }
@@ -78,6 +80,7 @@ export default function ChatPage() {
         "Kindly enter your API keys first! You should read the guide to learn more (click the ? icon).",
         {
           type: "info",
+          autoClose: 5000,
         }
       );
     } else {

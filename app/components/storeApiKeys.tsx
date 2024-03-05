@@ -21,6 +21,7 @@ export default function StoreApiKeys({
 
     notifyUser("API keys saved!", {
       type: "success",
+      autoClose: 2000,
     });
   };
 
