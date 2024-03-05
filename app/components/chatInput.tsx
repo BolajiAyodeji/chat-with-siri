@@ -12,7 +12,6 @@ export default function ChatInput({
         Enter your message here:
       </label>
       <input
-        type="text"
         id="message"
         name="message"
         value={input}

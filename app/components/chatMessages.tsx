@@ -26,11 +26,11 @@ export default function ChatMessages({ messages }: ChatMessagesProps) {
                 <Image
                   src="/bot.svg"
                   alt="Robot Icon"
-                  width={24}
-                  height={24}
+                  width={20}
+                  height={20}
                   priority
                 />
-                <span className="ml-2 text-xl font-semibold text-blue-500">
+                <span className="ml-2 text-md lg:text-xl font-semibold text-blue-500">
                   Siri:
                 </span>
               </div>
@@ -39,17 +39,17 @@ export default function ChatMessages({ messages }: ChatMessagesProps) {
                 <Image
                   src="/face.svg"
                   alt="Face Icon"
-                  width={21}
-                  height={21}
+                  width={18}
+                  height={18}
                   priority
                 />
-                <span className="ml-2 text-xl font-semibold text-teal-500">
+                <span className="ml-2 text-md lg:text-xl font-semibold text-teal-500">
                   You:
                 </span>
               </div>
             )}
             <br />
-            <span className="text-lg">{message.content}</span>
+            <span className="text-md lg:text-lg">{message.content}</span>
           </div>
         ))
       )}
