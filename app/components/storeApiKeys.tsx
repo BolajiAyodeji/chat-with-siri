@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { StoreApiKeysProps } from "@/app/types/chat";
-import notifyUser from "@/app/utils/toast";
+import notifyUser from "@/app/utils/notifyUser";
 import trimString from "@/app/utils/trimString";
 
 export default function StoreApiKeys({
@@ -19,7 +19,7 @@ export default function StoreApiKeys({
     setOpenAiKey(key1);
     setElevenLabsKey(key2);
 
-    notifyUser("API Keys saved!", {
+    notifyUser("API keys saved!", {
       type: "success",
     });
   };

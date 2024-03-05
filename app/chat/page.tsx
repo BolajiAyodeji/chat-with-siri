@@ -7,7 +7,7 @@ import ChatMessages from "@/app/components/chatMessages";
 import ChatControls from "@/app/components/chatControls";
 import ChatInput from "@/app/components/chatInput";
 import getVoices from "@/app/utils/getVoices";
-import notifyUser from "@/app/utils/toast";
+import notifyUser from "@/app/utils/notifyUser";
 import { userRole, botRole, Message } from "@/app/types/chat";
 import { VoiceResponse } from "elevenlabs/api";
 
@@ -72,30 +72,43 @@ export default function ChatPage() {
 
   const sendMessage = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setLoading(true);
-    setInput("");
 
-    const chatMessages: Message[] = [
-      ...messages,
-      { role: userRole, content: input },
-    ];
-    setMessages(chatMessages);
+    if (!openAiKey && !elevenLabsKey) {
+      notifyUser(
+        "Kindly enter your API keys first! You should read the guide to learn more (click the ? icon).",
+        {
+          type: "info",
+        }
+      );
+    } else {
+      setLoading(true);
+      setInput("");
 
-    const botChatResponse = await getOpenAIResponse(chatMessages);
-    const botVoiceResponse = await getElevenLabsResponse(botChatResponse);
+      const chatMessages: Message[] = [
+        ...messages,
+        { role: userRole, content: input },
+      ];
+      setMessages(chatMessages);
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      if (audioRef.current) {
-        audioRef.current.src = reader.result as string;
-        audioRef.current.play();
-      }
-    };
-    reader.readAsDataURL(botVoiceResponse);
+      const botChatResponse = await getOpenAIResponse(chatMessages);
+      const botVoiceResponse = await getElevenLabsResponse(botChatResponse);
 
-    setMessages([...chatMessages, { role: botRole, content: botChatResponse }]);
-    setLoading(false);
-    setSavedAudio(true);
+      const reader = new FileReader();
+      reader.onload = () => {
+        if (audioRef.current) {
+          audioRef.current.src = reader.result as string;
+          audioRef.current.play();
+        }
+      };
+      reader.readAsDataURL(botVoiceResponse);
+
+      setMessages([
+        ...chatMessages,
+        { role: botRole, content: botChatResponse },
+      ]);
+      setLoading(false);
+      setSavedAudio(true);
+    }
   };
 
   const clearMessages = async () => {
@@ -106,10 +119,10 @@ export default function ChatPage() {
   useEffect(() => {
     getVoices()
       .then((voices) => {
-        setVoices(voices!);
+        setVoices(voices ?? []);
       })
       .catch((error) => {
-        throw new Error(error);
+        console.error("Error fetching voices:", error);
       });
 
     const savedKey1 = sessionStorage.getItem("openai-key");
@@ -150,7 +163,14 @@ export default function ChatPage() {
                 clearMessages,
               }}
             />
-            <ChatInput {...{ input, setInput, loading, sendMessage }} />
+            <ChatInput
+              {...{
+                input,
+                setInput,
+                loading,
+                sendMessage,
+              }}
+            />
           </div>
         </>
       )}
