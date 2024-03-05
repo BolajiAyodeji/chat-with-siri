@@ -20,9 +20,9 @@ export default function ChatMessages({ messages }: ChatMessagesProps) {
         </div>
       ) : (
         messages.map((message, index) => (
-          <div key={index} className="my-10">
+          <div key={index} className="my-6 lg:my-10">
             {message.role === "assistant" ? (
-              <div className="flex">
+              <div className="flex mb-2 lg:mb-4">
                 <Image
                   src="/bot.svg"
                   alt="Robot Icon"
@@ -35,7 +35,7 @@ export default function ChatMessages({ messages }: ChatMessagesProps) {
                 </span>
               </div>
             ) : (
-              <div className="flex">
+              <div className="flex mb-2 lg:mb-4">
                 <Image
                   src="/face.svg"
                   alt="Face Icon"
@@ -48,7 +48,6 @@ export default function ChatMessages({ messages }: ChatMessagesProps) {
                 </span>
               </div>
             )}
-            <br />
             <span className="text-md lg:text-lg">{message.content}</span>
           </div>
         ))

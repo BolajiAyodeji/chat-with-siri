@@ -154,7 +154,7 @@ export default function ChatPage() {
             <ChatVoice {...{ voices, selectedVoice, setSelectedVoice }} />
           </div>
           <ChatMessages {...{ messages }} />
-          <div className="flex flex-col items-center w-full fixed bottom-0 pb-2 pt-2 bg-gray-900">
+          <div className="flex flex-col items-center w-full fixed bottom-0 pb-3 bg-gray-900">
             <ChatControls
               {...{
                 audioRef,

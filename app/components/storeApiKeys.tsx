@@ -30,7 +30,7 @@ export default function StoreApiKeys({
   return (
     <>
       <div className="mb-4">
-        <p className="mb-2 flex flex-row justify-center">
+        <p className="mb-2 flex flex-row justify-center text-sm lg:text-md">
           Enter your API keys (saved locally) &nbsp;
           <a
             className=""
@@ -95,7 +95,7 @@ export default function StoreApiKeys({
           <button
             type="submit"
             title="Save API keys to your computer"
-            className="w-full lg:w-auto px-8 py-4 border-2 border-white bg-white text-black"
+            className="w-full lg:w-auto px-6 py-2 lg:py-4 border-2 border-white bg-white text-black"
           >
             {ELEVENLABS_KEY && OPENAI_KEY ? "Update 🔐" : "Save 🔐"}
           </button>

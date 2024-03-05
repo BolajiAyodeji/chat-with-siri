@@ -7,7 +7,7 @@ export default function ChatInput({
   sendMessage,
 }: ChatInputProps) {
   return (
-    <form onSubmit={sendMessage} className="mb-4">
+    <form onSubmit={sendMessage}>
       <label className="hidden" htmlFor="message">
         Enter your message here:
       </label>

@@ -14,7 +14,7 @@ export default function ChatVoice({
         <select
           id="voices"
           name="voices"
-          className="p-2 w-4/4 text-blue-500 appearance-none bg-transparent border border-white text-center"
+          className="p-2 w-4/4 appearance-none bg-transparent border border-white text-blue-500"
           value={selectedVoice}
           onChange={(event) => setSelectedVoice(event.target.value)}
         >
@@ -22,7 +22,11 @@ export default function ChatVoice({
             voices
               .sort((a, b) => a.name.localeCompare(b.name))
               .map((voice) => (
-                <option key={voice.voice_id} value={voice.name}>
+                <option
+                  key={voice.voice_id}
+                  value={voice.name}
+                  className="text-center"
+                >
                   {voice.name} ({voice.labels.age} {voice.labels.accent}{" "}
                   {voice.labels.gender})
                 </option>
