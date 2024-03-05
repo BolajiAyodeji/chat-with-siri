@@ -10,7 +10,7 @@ A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completion
 
 </div>
 
-> [!NOTE]
+> [!TIP]
 >
 > Kindly read [this comprehensive tutorial]() to learn how this was built and how you can build yours (TBA).
 
