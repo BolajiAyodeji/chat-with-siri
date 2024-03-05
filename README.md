@@ -109,9 +109,9 @@ To enable users or even non-developers to test the application in production if 
 
 > [!NOTE]
 >
-> To create both API keys (if you don't have one already), kndly read this section of [the tutorial]() (TBA).
+> To create both API keys (if you don't have one already), kndly read this section of [the tutorial]() (TBA). Once you have the keys, you can enter them in the form and start chatting with Siri :).
 
-Once you have the keys, you can enter them in the form and start chatting with Siri :).
+---
 
 > [!WARNING]
 >
