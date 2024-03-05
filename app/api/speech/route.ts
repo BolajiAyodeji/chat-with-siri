@@ -1,11 +1,14 @@
 import { ElevenLabsClient } from "elevenlabs";
 
-const elevenlabs = new ElevenLabsClient({
-  apiKey: process.env.ELEVENLABS_API_KEY,
-});
-
 export async function POST(req: Request) {
-  const { message, voice } = await req.json();
+  const { apiKey, message, voice } = await req.json();
+
+  const elevenlabs = new ElevenLabsClient({
+    apiKey:
+      process.env.APP_MODE === `production`
+        ? apiKey
+        : process.env.ELEVENLABS_API_KEY,
+  });
 
   try {
     const audio = await elevenlabs.generate({
@@ -19,10 +22,8 @@ export async function POST(req: Request) {
     return new Response(audio as any, {
       headers: { "Content-Type": "audio/mpeg" },
     });
-  } catch (error) {
+  } catch (error: any) {
     console.error(error);
-    return Response.json(
-      "Something went wrong. Kindly check your logs for errors."
-    );
+    return Response.json(error, { status: error.statusCode });
   }
 }

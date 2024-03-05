@@ -1,3 +1,5 @@
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.min.css";
 import { Analytics } from "@vercel/analytics/react";
 import type { Metadata } from "next";
 import { IBM_Plex_Sans } from "next/font/google";
@@ -17,7 +19,7 @@ export const metadata: Metadata = {
     template: "%s | Chat With Siri",
   },
   description:
-    "A simple text-to-speech chatbot built with Nextjs, OpenAI's GPT-3, and ElevenLabs' API).",
+    "A text-to-speech chatbot built with Nextjs, OpenAI's GPT-3, and ElevenLabs' API).",
   twitter: {
     card: "summary_large_image",
     creator: "@iambolajiayo",
@@ -62,6 +64,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={ibm.className}>
         {children}
+        <ToastContainer stacked />
         <Analytics />
       </body>
     </html>

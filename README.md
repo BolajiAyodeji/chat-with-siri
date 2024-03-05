@@ -2,7 +2,7 @@
 
 ![](./public/logo.svg)
 
-A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completions API, and ElevenLabs' Text-to-Speech API.
+A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completions API, and ElevenLabs' Text-to-Speech API.
 
 ---
 
@@ -16,14 +16,21 @@ A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Com
 
 ---
 
+## Table of Contents
+
+* [Features](#features)
+* [Todo (Features)](#todo-features)
+* [Important Files and Folders](#important-files-and-folders)
+* [Getting Started](#getting-started)
+* [Deployment](#deployment)
+* [API Keys Guide](#api-keys-guide)
+* [Repo Stats Summary](#repo-stats-summary)
+* [Contributors Guide](#contributors-guide)
+* [License](#license)
+
+---
+
 ## Features
-
-<div align="center">
-
-![](./public/flow-dark.png#gh-dark-mode-only)
-![](./public/flow-light.png#gh-light-mode-only)
-
-</div>
 
 * [x] A responsive, user-friendly, and performant UI built with TypeScript, Reactjs, Nextjs App Router, Tailwind CSS, and ElevenLabs TypeScript SDK.
 * [x] Users can ask a question by text and get a text response.
@@ -32,59 +39,83 @@ A simple text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Com
 * [x] Users can replay the last audio response.
 * [x] Users can start a new chat session.
 * [x] Chat history and voice settings are saved to local storage.
+* [x] Public live demo for users to explore with their API keys.
 * [x] One-click deployment configuration to Vercel and Netlify.
 
-## Todo
+<div align="center">
 
-Some things to experiment with and add in a v2 in the future when I have the time:
+![](./public/flow-dark.png#gh-dark-mode-only)
+![](./public/flow-light.png#gh-light-mode-only)
 
-* [ ] Deploy a public live demo and allow users to enter their API keys (if they want).
-* [ ] Allow process termination when a response is loading (refactor the current loading indicator to a stop button).
-* [ ] Theme toggle for light mode.
+</div>
+
+## Todo (Features)
+
+Some things to experiment with and add in future versions when I have the time:
+
+* [ ] Allow process termination when a response is loading (refactor the current indicator to a stop button).
 * [ ] Stream the text response from OpenAI (a demo of this already exists but I need to clean things up).
 * [ ] Pass the stream chunks from OpenAI directly to ElevenLabs.
-* [ ] Stream the audio response from ElevenLabs.
-* [ ] Connect the audio stream to the UI.
+* [ ] Stream the audio response from ElevenLabs to the UI.
 * [ ] Increase the response tokens and characters.
-* [ ] Add an option to choose the language translation of the audio response (switch to the `eleven _multilingual_v2` model).
+* [ ] Add an option to choose the language translation of the audio response (using the `eleven _multilingual_v2` model).
+* [ ] Theme toggle for light mode.
 
 ## Important Files and Folders
 
-| **Path**                           | **Description**                      |
-| ---------------------------------- | ------------------------------------ |
-| `.env.example`                     | Example file with all the required environment variables.               |  
-| `/app/chat/route.ts`               | API route handler with Server Actions for communicating with OpenAI.       |
-| `/app/speech/route.ts`             | API route handler with Server Actions for communicating with ElevenLabs.   |
+| **Path**                           | **Description**                                 |
+| ---------------------------------- | ----------------------------------------------- |
+| `.env.example`                     | Example file with all the required environment variables.                           |  
+| `/app/chat/route.ts`               | API route handler for communicating with OpenAI.                              |
+| `/app/speech/route.ts`             | API route handler for communicating with ElevenLabs.                          |
+| `/app/components/storeApiKeys.tsx` | React component for the user API keys section of the UI.                              |
+| `/app/components/chatVoice.tsx`    | React component for the voice selection section of the UI.                   |
+| `/app/components/chatMessages.tsx` | React component for the chat messages section of the UI.                              |
+| `/app/components/chatControls.tsx` | React component for the user controls section of the UI.                              |
+| `/app/components/chatInput.tsx`    | React component for the user input section of the UI.                                  |
 | `/app/layout.tsx`                  | Shared UI for fonts and metadata configuration.                       |
-| `/app/page.tsx`                    | Home page (`/`).                     |
-| `/app/chat/page.tsx`               | Chat page (`/chat`).                 |
-| `/app/components/chatVoice.tsx`    | React component for the change voice select section of the UI.            |
-| `/app/components/chatMessages.tsx` | React component for the chat messages section of the UI.                   |
-| `/app/components/chatControls.tsx` | React component for the user input and controls section of the UI.                   |
-| `/types/chat.ts`                   | Types for the entire project.     |
+| `/app/page.tsx`                    | Home page (`/`).                                 |
+| `/app/chat/page.tsx`               | Chat page (`/chat`).                             |
 | `/utils/getVoices.ts`              | Utility file to fetch voices from ElevenLabs.    |
+| `/utils/notifyUser.ts`             | Utility file for toast notifications.            |
+| `/types/chat.ts`                   | Types for the entire project.                    |
 
 ## Getting Started
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app). To get started:
+To run this application locally, kindly follow the steps below:
 
 1. Rename the `.env.example` file to `.env.local` and fill in the required environment variables.
+    * `APP_MODE` - `development` or `production`.
     * `OPENAI_API_KEY` - OpenAI API key ([sign up and get one here](https://platform.openai.com/api-keys)).
     * `ELEVENLABS_API_KEY` - ElevenLabs API key ([sign up and get one here](http://elevenlabs.io/?from=bolajiayodeji2995)).
 
-2. Install all required dependencies with the `npm install` command (or use other package managers like `yarn` and `pnpm`).
+2. Install all required dependencies with the `npm install` command (or use `yarn` / `pnpm`).
 
 3. Run the development server with the command `npm run dev`.
 
 4. Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the result.
 
-5. All good! You can start modifying any page (e.g., `app/page.tsx`) and the app will auto-update.
+5. All good! You can start modifying any page and the app will auto-update.
 
 ## Deployment
 
 You can fork and deploy anywhere you want or use the one-click buttons below to deploy to Vercel or Netlify.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBolajiAyodeji%2Fchat-with-siri&env=OPENAI_API_KEY,ELEVENLABS_API_KEY&envDescription=API%20keys%20needed%20for%20the%20application) [![Deploy to Netlify](https://netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bolajiayodeji/chat-with-siri#OPENAI_API_KEY=,ELEVENLABS_API_KEY=)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBolajiAyodeji%2Fchat-with-siri&env=APP_MODE=production,OPENAI_API_KEY,ELEVENLABS_API_KEY&envDescription=API%20keys%20needed%20for%20the%20application) [![Deploy to Netlify](https://netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bolajiayodeji/chat-with-siri#APP_MODE=production,OPENAI_API_KEY=,ELEVENLABS_API_KEY=)
+
+## API Keys Guide
+
+To enable users or even non-developers to test the application in production if they want to, I've added a form where they can enter their API keys for both OpenAI and ElevenLabs (so I don't have to cover the costs and deal with request overload—this is a basic demo for now). This is a good way for anyone to test the application without having to clone and run it locally.
+
+> [!NOTE]
+>
+> To create both API keys (if you don't have one already), kndly read this section of [the tutorial]() (TBA). Once you have the keys, you can enter them in the form and start chatting with Siri :).
+
+---
+
+> [!WARNING]
+>
+> **Both API keys are stored in [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) and are not saved to any database (they're stored on your local computer and you can [read the code](./app/components/storeApiKeys.tsx) yourself). They are also not sent to any server or third-party service**. The keys are only used to make API requests on your behalf each time you want to use the app. This is safe and secure for anyone to use if you guarantee that no one else has access to your computer or browser. I used `sessionStorage` and not `localStorage` so that the keys are cleared when you close the browser tab or window. This is a good way to ensure that your keys are not stored for a long time and are not accessible to anyone else. You can always enter the keys again when next you want to use the app :).
 
 ## Repo Stats Summary
 
@@ -104,25 +135,12 @@ git clone https://github.com/<your username>/chat-with-siri.git && cd chat-with-
 
 4. I'll attend to your pull request soon and provide some feedback.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-* [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-* [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-To learn more about OpenAI's Chat Completions API, take a look at the following resources:
-
-* [OpenAI's Documentation](https://beta.openai.com/docs/) - learn about OpenAI's API features.
-* [OpenAI's Nodejs SDK](https://github.com/openai/openai-node) - the official Node.js / Typescript library for the OpenAI API.
-* [Vercel's AI SDK](https://sdk.vercel.ai) - an open-source library designed to help developers build conversational streaming user interfaces in JavaScript and TypeScript.
-
-To learn more about ElevenLabs' Text-to-Speech API, take a look at the following resources:
-
-* [ElevenLabs' Documentation](https://docs.elevenlabs.com) - learn about ElevenLabs' Text-to-Speech API features and API.
-* [ElevenLabs' TypeScript SDK](https://github.com/elevenlabs/elevenlabs-js) - the official JavaScript library for ElevenLabs Text to Speech API.
-* [ElevenLabs' Python SDK](https://github.com/elevenlabs/elevenlabs-python) - the official Python library for ElevenLabs Text to Speech API.
-
 ## License
 
 This repository is published under the [MIT](LICENSE) license.
+
+---
+
+<div align="center">
+<a href="https://bolajiayodeji.com" target="_blank" rel="noopener noreferrer"><img src="https://bolajiayodeji.com/favicon.png" width="30" /></a>
+</div>

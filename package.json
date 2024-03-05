@@ -10,10 +10,11 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.1.4",
-    "elevenlabs": "^0.1.5",
-    "next": "14.1.0",
+    "elevenlabs": "0.1.5",
+    "next": "^14.1.2",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-toastify": "^10.0.4"
   },
   "devDependencies": {
     "@types/node": "^20.11.16",

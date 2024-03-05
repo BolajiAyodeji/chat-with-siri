@@ -7,6 +7,15 @@
   --black: 17 24 39;
 }
 
+textarea,
+input,
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --white: #ffffff;
