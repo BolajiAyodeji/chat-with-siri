@@ -35,7 +35,7 @@ export default function StoreApiKeys({
           Enter your API keys (saved locally) &nbsp;
           <a
             className=""
-            href="https://github.com/BolajiAyodeji/chat-with-siri"
+            href="https://bit.ly/chat-with-siri-guide"
             target="_blank"
             rel="noopener noreferrer"
           >
