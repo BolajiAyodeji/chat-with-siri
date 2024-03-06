@@ -105,13 +105,7 @@ You can fork and deploy anywhere you want or use the one-click buttons below to 
 
 ## API Keys Guide
 
-To enable users or even non-developers to test the application in production if they want to, I've added a form where they can enter their API keys for both OpenAI and ElevenLabs (so I don't have to cover the costs and deal with request overload—this is a basic demo for now). This is a good way for anyone to test the application without having to clone and run it locally.
-
-> [!NOTE]
->
-> To create both API keys (if you don't have one already), kndly read this section of [the tutorial]() (TBA). Once you have the keys, you can enter them in the form and start chatting with Siri :).
-
----
+To enable users or even non-developers to test the application in production if they want to, I've added a form where they can enter their API keys for both OpenAI and ElevenLabs (so I don't have to cover the costs and deal with request overload—this is a basic demo for now). This is a good way for anyone to test the application without having to clone and run it locally. To create both API keys (if you don't have one already), **kindly read this section of [the tutorial]() (TBA)**. Once you have the keys, you can enter them in the form and start chatting with Siri :).
 
 > [!WARNING]
 >
