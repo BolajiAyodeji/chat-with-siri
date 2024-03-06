@@ -1,0 +1,3 @@
+[template.environment]
+  OPENAI_API_KEY= "Add your OpenAI API key"
+  ELEVENLABS_API_KEY= "Add your ElevenLabs API key"
