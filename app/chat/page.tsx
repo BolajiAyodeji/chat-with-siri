@@ -1,8 +1,8 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import ChatVoice from "@/app/components/chatVoice";
 import StoreApiKeys from "@/app/components/storeApiKeys";
+import ChatVoice from "@/app/components/chatVoice";
 import ChatMessages from "@/app/components/chatMessages";
 import ChatControls from "@/app/components/chatControls";
 import ChatInput from "@/app/components/chatInput";
@@ -13,6 +13,7 @@ import { VoiceResponse } from "elevenlabs/api";
 
 export default function ChatPage() {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [isModal, setIsModal] = useState(false);
   const [openAiKey, setOpenAiKey] = useState<string>("");
   const [elevenLabsKey, setElevenLabsKey] = useState<string>("");
   const [voices, setVoices] = useState<VoiceResponse[]>([]);
@@ -76,13 +77,7 @@ export default function ChatPage() {
     event.preventDefault();
 
     if (!openAiKey && !elevenLabsKey) {
-      notifyUser(
-        "Kindly enter your API keys first! You should read the guide to learn more (click the ? icon).",
-        {
-          type: "info",
-          autoClose: 5000,
-        }
-      );
+      setIsModal(true);
     } else {
       setLoading(true);
       setInput("");
@@ -147,13 +142,20 @@ export default function ChatPage() {
   }, [selectedVoice, messages]);
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between py-4 px-4 lg:px-0">
+    <main className="flex flex-col min-h-screen items-center justify-between py-4 px-4 lg:px-0">
       {voices.length === 0 ? (
         <p className="text-white text-9xl animate-ping">...</p>
       ) : (
         <>
-          <div className="flex flex-col w-full z-10 fixed top-0 text-center items-center pt-3 bg-gray-900">
-            <StoreApiKeys {...{ setOpenAiKey, setElevenLabsKey }} />
+          <div className="flex flex-col w-full z-10 fixed top-0 text-center items-center bg-gray-900">
+            <StoreApiKeys
+              {...{
+                isModal,
+                setIsModal,
+                setOpenAiKey,
+                setElevenLabsKey,
+              }}
+            />
             <ChatVoice {...{ voices, selectedVoice, setSelectedVoice }} />
           </div>
           <ChatMessages {...{ messages }} />

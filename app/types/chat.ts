@@ -9,6 +9,8 @@ export interface Message {
 }
 
 export interface StoreApiKeysProps {
+  isModal: boolean;
+  setIsModal: (isExpanded: boolean) => void;
   setOpenAiKey: (voice: string) => void;
   setElevenLabsKey: (voice: string) => void;
 }
