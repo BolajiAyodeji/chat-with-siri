@@ -63,7 +63,7 @@ export default function StoreApiKeys({
       <div
         className={`${
           isModal ? "visible" : "invisible"
-        } absolute min-h-screen min-w-full z-40 transition-all ease-in delay-75 bg-gray-900`}
+        } absolute min-h-screen min-w-full z-40 transition-all ease-in bg-gray-900`}
       >
         <div className="mx-0 xl:mx-96 mt-0 lg:mt-24 py-40 border-0 lg:border-2 lg:border-white">
           <p className="px-4 text-sm lg:text-base antialiased tracking-normal leading-9">
