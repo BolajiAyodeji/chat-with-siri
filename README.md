@@ -63,11 +63,12 @@ A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completion
 | `.env.example`                     | Example file with all the required environment variables.                           |  
 | `/app/chat/route.ts`               | API route handler for communicating with OpenAI.                              |
 | `/app/speech/route.ts`             | API route handler for communicating with ElevenLabs.                          |
-| `/app/components/storeApiKeys.tsx` | React component for the user API keys section of the UI.                              |
-| `/app/components/chatVoice.tsx`    | React component for the voice selection section of the UI.                   |
-| `/app/components/chatMessages.tsx` | React component for the chat messages section of the UI.                              |
-| `/app/components/chatControls.tsx` | React component for the user controls section of the UI.                              |
+| `/app/components/storeApiKeys.tsx` | React component for the user API keys section of the UI.                                  |
+| `/app/components/chatVoice.tsx`    | React component for the voice selection section of the UI.                                  |
+| `/app/components/chatMessages.tsx` | React component for the chat messages section of the UI.                                  |
+| `/app/components/chatControls.tsx` | React component for the user controls section of the UI.                                  |
 | `/app/components/chatInput.tsx`    | React component for the user input section of the UI.                                  |
+| `/hooks/useLocalStorage.ts`        | React hooks to save and fetch data from localStorage. |
 | `/app/layout.tsx`                  | Shared UI for fonts and metadata configuration.                       |
 | `/app/page.tsx`                    | Home page (`/`).                                 |
 | `/app/chat/page.tsx`               | Chat page (`/chat`).                             |
@@ -104,7 +105,7 @@ To enable anyone to test the application in production if they want to, I've add
 
 > [!WARNING]
 >
-> **Both API keys are stored on your local computer and are not saved to any database or sent to any server/third-party service (they're stored in [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) and you can [read the code](./app/components/storeApiKeys.tsx) yourself)**. The keys are only used to make API requests on your behalf each time you want to use the app. This is safe and secure for anyone to use **if you guarantee that no one else has access to your computer or browser**. I used `sessionStorage` and not `localStorage` so that the keys are cleared when you close the browser tab or window. This is a good way to ensure that your keys are not stored for a long time and are not accessible to anyone else. You can always enter the keys again when next you want to use the app :).
+> **Both API keys are stored on your local computer and are not saved to any database or sent to any server/third-party service (they're stored in [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) and you can [read the code](./app/components/storeApiKeys.tsx) yourself)**. The keys are only used to make API requests on your behalf each time you want to use the app. This is safe and secure for anyone to use **if you guarantee that no one else has access to your computer or browser**. You can use the "Delete" button in the form to remove the API keys from your local storage at any time.
 
 Enjoy chatting with Siri!
 
