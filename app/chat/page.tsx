@@ -71,7 +71,7 @@ export default function ChatPage() {
   const sendMessage = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!openAiKey && !elevenLabsKey) {
+    if (process.env.APP_MODE === "production" && (!openAiKey || !elevenLabsKey)) {
       setIsModal(true);
     } else {
       setLoading(true);
@@ -84,13 +84,13 @@ export default function ChatPage() {
       const botVoiceResponse = await getElevenLabsResponse(botChatResponse);
 
       const reader = new FileReader();
+      reader.readAsDataURL(botVoiceResponse);
       reader.onload = () => {
         if (audioRef.current) {
           audioRef.current.src = reader.result as string;
           audioRef.current.play();
         }
       };
-      reader.readAsDataURL(botVoiceResponse);
 
       setMessages([...chatMessages, { role: botRole, content: botChatResponse }]);
       setLoading(false);
