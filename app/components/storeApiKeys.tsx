@@ -28,6 +28,9 @@ export default function StoreApiKeys({
 
   const handleDeleteKeys = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
+
+    const formElement = document.getElementById("keys-form") as HTMLFormElement;
+    formElement?.reset();
     setOpenAiKey("");
     setElevenLabsKey("");
     localStorage.removeItem("openai-key");
