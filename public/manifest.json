@@ -1,6 +1,6 @@
 {
   "name": "Chat With Siri",
-  "short_name": "Siri Chat",
+  "short_name": "Chat With Siri",
   "theme_color": "#3b82f6",
   "background_color": "#111827",
   "display": "standalone",
