@@ -23,29 +23,13 @@ export default function ChatMessages({ messages }: ChatMessagesProps) {
           <div key={index} className="my-6 lg:my-10">
             {message.role === "assistant" ? (
               <div className="flex mb-2 lg:mb-4">
-                <Image
-                  src="/bot.svg"
-                  alt="Robot Icon"
-                  width={20}
-                  height={20}
-                  priority
-                />
-                <span className="ml-2 text-md lg:text-lg font-semibold text-blue-500">
-                  Siri:
-                </span>
+                <Image src="/bot.svg" alt="Robot Icon" width={20} height={20} priority />
+                <span className="ml-2 text-md lg:text-lg font-semibold text-blue-500">Siri:</span>
               </div>
             ) : (
               <div className="flex mb-2 lg:mb-4">
-                <Image
-                  src="/face.svg"
-                  alt="Face Icon"
-                  width={18}
-                  height={18}
-                  priority
-                />
-                <span className="ml-2 text-md lg:text-lg font-semibold text-teal-500">
-                  You:
-                </span>
+                <Image src="/face.svg" alt="Face Icon" width={18} height={18} priority />
+                <span className="ml-2 text-md lg:text-lg font-semibold text-teal-500">You:</span>
               </div>
             )}
             <span className="text-md lg:text-lg">{message.content}</span>

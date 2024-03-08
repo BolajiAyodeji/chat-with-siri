@@ -6,6 +6,7 @@ import ChatVoice from "@/app/components/chatVoice";
 import ChatMessages from "@/app/components/chatMessages";
 import ChatControls from "@/app/components/chatControls";
 import ChatInput from "@/app/components/chatInput";
+import useLocalStorage from "@/app/hooks/useLocalStorage";
 import getVoices from "@/app/utils/getVoices";
 import notifyUser from "@/app/utils/notifyUser";
 import { userRole, botRole, Message } from "@/app/types/chat";
@@ -14,12 +15,12 @@ import { VoiceResponse } from "elevenlabs/api";
 export default function ChatPage() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isModal, setIsModal] = useState(false);
-  const [openAiKey, setOpenAiKey] = useState<string>("");
-  const [elevenLabsKey, setElevenLabsKey] = useState<string>("");
+  const [openAiKey, setOpenAiKey] = useLocalStorage<string>("openai-key", "");
+  const [elevenLabsKey, setElevenLabsKey] = useLocalStorage<string>("11labs-key", "");
   const [voices, setVoices] = useState<VoiceResponse[]>([]);
-  const [selectedVoice, setSelectedVoice] = useState("Myra");
+  const [selectedVoice, setSelectedVoice] = useLocalStorage<string>("selectedVoice", "Myra");
   const [input, setInput] = useState("");
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useLocalStorage<Message[]>("chatMessages", []);
   const [loading, setLoading] = useState<boolean>(false);
   const [savedAudio, setSavedAudio] = useState<boolean>(false);
 
@@ -27,19 +28,16 @@ export default function ChatPage() {
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
-      body: JSON.stringify({ apiKey: openAiKey, messages: chatMessages }),
+      body: JSON.stringify({ apiKey: openAiKey, messages: chatMessages })
     });
 
     if (response.status === 401) {
-      notifyUser(
-        "Your OpenAI API Key is invalid. Kindly check and try again.",
-        {
-          type: "error",
-          autoClose: 5000,
-        }
-      );
+      notifyUser("Your OpenAI API Key is invalid. Kindly check and try again.", {
+        type: "error",
+        autoClose: 5000
+      });
     }
 
     const data = await response.json();
@@ -50,23 +48,20 @@ export default function ChatPage() {
     const response = await fetch("/api/speech", {
       method: "POST",
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "application/json"
       },
       body: JSON.stringify({
         apiKey: elevenLabsKey,
         message: text,
-        voice: selectedVoice,
-      }),
+        voice: selectedVoice
+      })
     });
 
     if (response.status === 401) {
-      notifyUser(
-        "Your ElevenLabs API Key is invalid. Kindly check and try again.",
-        {
-          type: "error",
-          autoClose: 5000,
-        }
-      );
+      notifyUser("Your ElevenLabs API Key is invalid. Kindly check and try again.", {
+        type: "error",
+        autoClose: 5000
+      });
     }
 
     const data = await response.blob();
@@ -82,10 +77,7 @@ export default function ChatPage() {
       setLoading(true);
       setInput("");
 
-      const chatMessages: Message[] = [
-        ...messages,
-        { role: userRole, content: input },
-      ];
+      const chatMessages: Message[] = [...messages, { role: userRole, content: input }];
       setMessages(chatMessages);
 
       const botChatResponse = await getOpenAIResponse(chatMessages);
@@ -100,10 +92,7 @@ export default function ChatPage() {
       };
       reader.readAsDataURL(botVoiceResponse);
 
-      setMessages([
-        ...chatMessages,
-        { role: botRole, content: botChatResponse },
-      ]);
+      setMessages([...chatMessages, { role: botRole, content: botChatResponse }]);
       setLoading(false);
       setSavedAudio(true);
     }
@@ -122,24 +111,7 @@ export default function ChatPage() {
       .catch((error) => {
         console.error("Error fetching voices:", error);
       });
-
-    const savedKey1 = sessionStorage.getItem("openai-key");
-    const savedKey2 = sessionStorage.getItem("11labs-key");
-    const savedVoice = localStorage.getItem("selectedVoice");
-    const savedMessages = localStorage.getItem("chatMessages");
-
-    if (savedKey1) setOpenAiKey(savedKey1!);
-    if (savedKey2) setElevenLabsKey(savedKey2!);
-    if (savedVoice) setSelectedVoice(savedVoice!);
-    if (savedMessages) setMessages(JSON.parse(savedMessages!));
   }, []);
-
-  useEffect(() => {
-    if (messages.length !== 0) {
-      localStorage.setItem("chatMessages", JSON.stringify(messages));
-      localStorage.setItem("selectedVoice", selectedVoice);
-    }
-  }, [selectedVoice, messages]);
 
   return (
     <main className="flex flex-col min-h-screen items-center justify-between py-4 px-4 lg:px-0">
@@ -153,7 +125,7 @@ export default function ChatPage() {
                 isModal,
                 setIsModal,
                 setOpenAiKey,
-                setElevenLabsKey,
+                setElevenLabsKey
               }}
             />
             <ChatVoice {...{ voices, selectedVoice, setSelectedVoice }} />
@@ -165,7 +137,7 @@ export default function ChatPage() {
                 audioRef,
                 savedAudio,
                 messages,
-                clearMessages,
+                clearMessages
               }}
             />
             <ChatInput
@@ -173,7 +145,7 @@ export default function ChatPage() {
                 input,
                 setInput,
                 loading,
-                sendMessage,
+                sendMessage
               }}
             />
           </div>

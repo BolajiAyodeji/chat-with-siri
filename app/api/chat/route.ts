@@ -19,28 +19,23 @@ export async function POST(req: Request) {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${
-        process.env.APP_MODE === `production`
-          ? apiKey
-          : process.env.OPENAI_API_KEY
-      }`,
+        process.env.APP_MODE === `production` ? apiKey : process.env.OPENAI_API_KEY
+      }`
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
       max_tokens: 100,
       temperature: 0.7,
       n: 1,
-      messages,
-    }),
+      messages
+    })
   });
   const data = await res.json();
 
   if (data.error && data.error.code === "invalid_api_key") {
-    return Response.json(
-      "Something went wrong. Kindly check for error alerts.",
-      {
-        status: 401,
-      }
-    );
+    return Response.json("Something went wrong. Kindly check for error alerts.", {
+      status: 401
+    });
   }
 
   const output = data.choices[0]?.message?.content?.trim();

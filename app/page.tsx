@@ -80,8 +80,7 @@ export default function Home() {
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Ask the chatbot a question by text and get an audio response
-            alongside text.
+            Ask the chatbot a question by text and get an audio response alongside text.
           </p>
         </a>
         <a
@@ -114,8 +113,7 @@ export default function Home() {
             </span>
           </h2>
           <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore the public code of this demo on GitHub and maybe contribute
-            to it.
+            Explore the public code of this demo on GitHub and maybe contribute to it.
           </p>
         </a>
       </div>
@@ -131,11 +129,7 @@ export default function Home() {
         />
         <p className="text-center">
           &copy;{" "}
-          <a
-            href="https://bolajiayodeji.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://bolajiayodeji.com" target="_blank" rel="noopener noreferrer">
             Bolaji Ayodeji
           </a>{" "}
           | 2024 - {new Date().getFullYear()}

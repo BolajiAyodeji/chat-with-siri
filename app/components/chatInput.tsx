@@ -1,11 +1,6 @@
 import type { ChatInputProps } from "@/app/types/chat";
 
-export default function ChatInput({
-  input,
-  setInput,
-  loading,
-  sendMessage,
-}: ChatInputProps) {
+export default function ChatInput({ input, setInput, loading, sendMessage }: ChatInputProps) {
   return (
     <form onSubmit={sendMessage}>
       <label className="hidden" htmlFor="message">

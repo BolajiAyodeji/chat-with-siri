@@ -1,10 +1,6 @@
 import { ChatVoiceProps } from "@/app/types/chat";
 
-export default function ChatVoice({
-  voices,
-  selectedVoice,
-  setSelectedVoice,
-}: ChatVoiceProps) {
+export default function ChatVoice({ voices, selectedVoice, setSelectedVoice }: ChatVoiceProps) {
   return (
     <>
       <div className="p-4 lg:p-8 lg:w-3/4 xl:w-2/4 border-0 lg:border-x-2 lg:border-white">
@@ -22,13 +18,8 @@ export default function ChatVoice({
             voices
               .sort((a, b) => a.name.localeCompare(b.name))
               .map((voice) => (
-                <option
-                  key={voice.voice_id}
-                  value={voice.name}
-                  className="text-center"
-                >
-                  {voice.name} ({voice.labels.age} {voice.labels.accent}{" "}
-                  {voice.labels.gender})
+                <option key={voice.voice_id} value={voice.name} className="text-center">
+                  {voice.name} ({voice.labels.age} {voice.labels.accent} {voice.labels.gender})
                 </option>
               ))}
         </select>
