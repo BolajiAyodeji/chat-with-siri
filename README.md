@@ -19,7 +19,6 @@ A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completion
 ## Table of Contents
 
 * [Features](#features)
-* [Todo (Features)](#todo-features)
 * [Important Files and Folders](#important-files-and-folders)
 * [Getting Started](#getting-started)
 * [Deployment](#deployment)
@@ -42,18 +41,6 @@ A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completion
 * [x] Chat history and voice settings are saved to local storage.
 * [x] Public live demo for users to explore with their API keys.
 * [x] One-click deployment configuration to Vercel and Netlify.
-
-<div align="center">
-
-![](./public/flow-dark.png#gh-dark-mode-only)
-![](./public/flow-light.png#gh-light-mode-only)
-
-</div>
-
-## Todo (Features)
-
-Some things to experiment with and add in future versions when I have the time:
-
 * [ ] Allow process termination when a response is loading (refactor the current indicator to a stop button).
 * [ ] Stream the text response from OpenAI (a demo of this already exists but I need to clean things up).
 * [ ] Pass the stream chunks from OpenAI directly to ElevenLabs.
@@ -61,6 +48,13 @@ Some things to experiment with and add in future versions when I have the time:
 * [ ] Increase the response tokens and characters.
 * [ ] Add an option to choose the language translation of the audio response (using the `eleven _multilingual_v2` model).
 * [ ] Theme toggle for light mode.
+
+<div align="center">
+
+![](./public/flow-dark.png#gh-dark-mode-only)
+![](./public/flow-light.png#gh-light-mode-only)
+
+</div>
 
 ## Important Files and Folders
 
@@ -100,7 +94,7 @@ To run this application locally, kindly follow the steps below:
 
 ## Deployment
 
-You can fork and deploy anywhere you want or use the one-click buttons below to deploy to Vercel or Netlify.
+You can fork and deploy anywhere you want or use the one-click buttons below to deploy to Vercel or Netlify. All you need is to ensure you add the environment variables mentioned in the [Getting Started](#getting-started) section.
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBolajiAyodeji%2Fchat-with-siri&env=APP_MODE,OPENAI_API_KEY,ELEVENLABS_API_KEY&envDescription=API%20keys%20needed%20for%20the%20application) [![Deploy to Netlify](https://netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bolajiayodeji/chat-with-siri#APP_MODE=production)
 
