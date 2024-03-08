@@ -20,6 +20,26 @@ export const metadata: Metadata = {
   },
   description:
     "A text-to-speech chatbot built with Nextjs, OpenAI's GPT-3, and ElevenLabs' API).",
+  applicationName: "Chat With Siri",
+  manifest: "/manifest.json",
+  appleWebApp: {
+    title: "Chat With Siri",
+    statusBarStyle: "black-translucent",
+  },
+  icons: {
+    shortcut: "/fav.svg",
+    apple: [
+      { url: "/fav.svg" },
+      { url: "/pwa/ios/152.png", sizes: "152x152" },
+      { url: "/pwa/ios/180.png", sizes: "180x180" },
+      { url: "/pwa/ios/167.png", sizes: "167x167" },
+    ],
+    other: {
+      rel: "mask-icon",
+      url: "/fav.svg",
+      color: "#3b82f6",
+    },
+  },
   twitter: {
     card: "summary_large_image",
     creator: "@iambolajiayo",
@@ -53,6 +73,10 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Bolaji Ayodeji", url: "https://bolajiayodeji.com" }],
   creator: "Bolaji Ayodeji",
+};
+
+export const viewport = {
+  themeColor: "#3b82f6",
 };
 
 export default function RootLayout({
