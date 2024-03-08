@@ -41,8 +41,8 @@ A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completion
 * [x] Chat history and voice settings are saved to local storage.
 * [x] Public live demo for users to explore with their API keys.
 * [x] One-click deployment configuration to Vercel and Netlify.
-* [ ] Allow process termination when a response is loading (refactor the current indicator to a stop button).
-* [ ] Stream the text response from OpenAI (a demo of this already exists but I need to clean things up).
+* [ ] Stream the text response from OpenAI.
+* [ ] Allow process termination when the response is streaming (refactor the current loading indicator to a stop button).
 * [ ] Pass the stream chunks from OpenAI directly to ElevenLabs.
 * [ ] Stream the audio response from ElevenLabs to the UI.
 * [ ] Increase the response tokens and characters.
