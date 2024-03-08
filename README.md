@@ -33,6 +33,7 @@ A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completion
 ## Features
 
 * [x] A responsive, user-friendly, and performant UI built with TypeScript, Reactjs, Nextjs App Router, Tailwind CSS, and ElevenLabs TypeScript SDK.
+* [x] PWA support for installation on mobile devices and offline usage.
 * [x] Users can ask a question by text and get a text response.
 * [x] Users can ask a question by text and get an audio response.
 * [x] Users can change the voice of the audio response (40+ options).

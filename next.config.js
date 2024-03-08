@@ -9,9 +9,6 @@ const withPWA = require("next-pwa")({
   register: true,
   skipWaiting: true,
   runtimeCaching,
-  workboxOptions: {
-    disableDevLogs: true,
-  },
 });
 
 const nextConfig = withPWA({
