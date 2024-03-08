@@ -145,14 +145,14 @@ export default function StoreApiKeys({
                 <button
                   type="submit"
                   title="Save API keys to your computer"
-                  className="w-full lg:w-52 px-6 py-2 lg:py-4 border-2 border-white bg-white text-black"
+                  className="w-full lg:w-52 px-6 py-2 lg:py-4 border-x-2 border-t-2 border-b-0 lg:border-2 border-white bg-white text-black"
                 >
                   {ELEVENLABS_KEY && OPENAI_KEY ? "Update" : "Save"}
                 </button>
                 <button
                   title="Delete the API keys from your computer"
                   onClick={handleDeleteKeys}
-                  className="w-full lg:w-52 px-6 py-2 lg:py-4 border-2 border-white text-red-500 hover:bg-red-500 hover:text-white transition-colors"
+                  className="w-full lg:w-52 px-6 py-2 lg:py-4 border-x-2 border-t-0 border-b-2 lg:border-2 border-white text-red-500 hover:bg-red-500 hover:text-white transition-colors"
                 >
                   Delete
                 </button>
