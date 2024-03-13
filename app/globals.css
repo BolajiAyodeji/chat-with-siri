@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 :root {
-  --white: #ffffff;
-  --black: 17 24 39;
+  --white: 255 255 255; /* #ffffff */
+  --black: 17 24 39; /* #111827 */
 }
 
 textarea,
@@ -13,18 +13,21 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  text-align-last: center;
   border-radius: 0;
+}
+
+select {
+  text-align-last: center;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --white: #ffffff;
+    --white: 255 255 255;
     --black: 17 24 39;
   }
 }
 
 body {
-  color: var(--white);
+  color: rgb(var(--white));
   background: rgb(var(--black));
 }

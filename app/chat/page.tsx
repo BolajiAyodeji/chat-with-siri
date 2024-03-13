@@ -71,7 +71,7 @@ export default function ChatPage() {
   const sendMessage = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (process.env.NEXT_PUBLIC_APP_MODE && !openAiKey && !elevenLabsKey) {
+    if (process.env.NEXT_PUBLIC_APP_MODE === "production" && !openAiKey && !elevenLabsKey) {
       setIsModal(true);
     } else {
       setLoading(true);
