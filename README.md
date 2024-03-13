@@ -81,7 +81,7 @@ A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completion
 To run this application locally, kindly follow the steps below:
 
 1. Rename the `.env.example` file to `.env.local` and fill in the required environment variables.
-    * `APP_MODE` - `development` or `production`.
+    * `NEXT_PUBLIC_APP_MODE` - `development` or `production`.
     * `OPENAI_API_KEY` - OpenAI API key ([sign up and get one here](https://platform.openai.com/api-keys)).
     * `ELEVENLABS_API_KEY` - ElevenLabs API key ([sign up and get one here](http://elevenlabs.io/?from=bolajiayodeji2995)).
 
@@ -97,7 +97,7 @@ To run this application locally, kindly follow the steps below:
 
 You can fork and deploy anywhere you want or use the one-click buttons below to deploy to Vercel or Netlify. All you need is to ensure you add the environment variables mentioned in the [Getting Started](#getting-started) section.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBolajiAyodeji%2Fchat-with-siri&env=APP_MODE,OPENAI_API_KEY,ELEVENLABS_API_KEY&envDescription=API%20keys%20needed%20for%20the%20application) [![Deploy to Netlify](https://netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bolajiayodeji/chat-with-siri#APP_MODE=production)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBolajiAyodeji%2Fchat-with-siri&env=NEXT_PUBLIC_APP_MODE,OPENAI_API_KEY,ELEVENLABS_API_KEY&envDescription=API%20keys%20needed%20for%20the%20application) [![Deploy to Netlify](https://netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bolajiayodeji/chat-with-siri#NEXT_PUBLIC_APP_MODE=production)
 
 ## API Keys Guide
 
