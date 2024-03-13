@@ -23,6 +23,7 @@ A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completion
 * [Getting Started](#getting-started)
 * [Deployment](#deployment)
 * [API Keys Guide](#api-keys-guide)
+* [Troubleshooting](#troubleshooting)
 * [Repo Stats Summary](#repo-stats-summary)
 * [Contributors Guide](#contributors-guide)
 * [License](#license)
@@ -32,7 +33,7 @@ A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completion
 ## Features
 
 * [x] A responsive, user-friendly, and performant UI built with TypeScript, Reactjs, Nextjs App Router, Tailwind CSS, and ElevenLabs TypeScript SDK.
-* [x] PWA support for installation on mobile devices and offline usage.
+* [x] PWA support for installation on mobile devices.
 * [x] Users can ask a question by text and get a text response.
 * [x] Users can ask a question by text and get an audio response.
 * [x] Users can change the voice of the audio response (40+ options).
@@ -108,6 +109,12 @@ To enable anyone to test the application in production if they want to, I've add
 > **Both API keys are stored on your local computer and are not saved to any database or sent to any server/third-party service (they're stored in [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) and you can [read the code](./app/components/storeApiKeys.tsx) yourself)**. The keys are only used to make API requests on your behalf each time you want to use the app. This is safe and secure for anyone to use **if you guarantee that no one else has access to your computer or browser**. You can use the "Delete" button in the form to remove the API keys from your local storage at any time.
 
 Enjoy chatting with Siri!
+
+## Troubleshooting
+
+If you're accessing the application on the Safari browser, you might get the `NotAllowedError: The request is not allowed by the user agent or the platform in the current context, possibly because the user denied permission` error. This is because the browser doesn't allow autoplaying audio by default. You can fix this by going to the browser's Auto-Play settings as seen in the screenshot below and changing the option for the `chat-with-siri.vercel.app` website from `Stop Media with Sound` to `Allow All Auto-Play`. If you refresh now, the audio should work fine.
+
+![](./public/safari-fix.png)
 
 ## Repo Stats Summary
 
