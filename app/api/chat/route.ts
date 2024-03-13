@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${
-        process.env.APP_MODE === `production` ? apiKey : process.env.OPENAI_API_KEY
+        process.env.NEXT_PUBLIC_APP_MODE === `production` ? apiKey : process.env.OPENAI_API_KEY
       }`
     },
     body: JSON.stringify({
