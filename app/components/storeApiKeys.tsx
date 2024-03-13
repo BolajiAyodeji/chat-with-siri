@@ -72,9 +72,8 @@ export default function StoreApiKeys({
           <p className="px-4 lg:px-80 text-sm lg:text-base antialiased tracking-normal leading-9">
             <span className="block mb-6 text-lg">🔐 Kindly enter your API keys first!</span>
             The API keys will be stored on your local computer and are not saved to any database or
-            sent to any server or third-party service.
-            <br />
-            You can delete the keys using the &apos;Delete&apos; button. Kindly read{" "}
+            sent to any server or third-party service. You can delete the keys using the
+            &apos;Delete&apos; button. Kindly read{" "}
             <a
               className="text-blue-500 underline underline-offset-8 hover:no-underline"
               href="https://bit.ly/chat-with-siri-guide"
