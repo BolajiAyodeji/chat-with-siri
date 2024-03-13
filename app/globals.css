@@ -13,6 +13,7 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  text-align-last: center;
   border-radius: 0;
 }
 
