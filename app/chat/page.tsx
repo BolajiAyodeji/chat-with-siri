@@ -10,7 +10,7 @@ import useLocalStorage from "@/app/hooks/useLocalStorage";
 import getVoices from "@/app/utils/getVoices";
 import notifyUser from "@/app/utils/notifyUser";
 import { userRole, botRole, Message } from "@/app/types/chat";
-import { VoiceResponse } from "elevenlabs/api";
+import { Voice as VoiceResponse } from "elevenlabs/api";
 
 export default function ChatPage() {
   const audioRef = useRef<HTMLAudioElement>(null);

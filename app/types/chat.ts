@@ -1,4 +1,4 @@
-import { VoiceResponse } from "elevenlabs/api";
+import { Voice as VoiceResponse } from "elevenlabs/api";
 
 export const userRole = "user";
 export const botRole = "assistant";
