@@ -74,7 +74,7 @@ export default function StoreApiKeys({
             The API keys will be stored on your local computer and are not saved to any database or
             sent to any server or third-party service.
             <br />
-            You can delete the keys using the &apos;Delete&apos; button. You should read{" "}
+            You can delete the keys using the &apos;Delete&apos; button. Kindly read{" "}
             <a
               className="text-blue-500 underline underline-offset-8 hover:no-underline"
               href="https://bit.ly/chat-with-siri-guide"

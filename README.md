@@ -41,7 +41,6 @@ A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completion
 * [x] Users can start a new chat session.
 * [x] Chat history and voice settings are saved to local storage.
 * [x] Public live demo for users to explore with their API keys.
-* [x] One-click deployment configuration to Vercel and Netlify.
 * [ ] Stream the text response from OpenAI.
 * [ ] Allow process termination when the response is streaming (refactor the current loading indicator to a stop button).
 * [ ] Pass the stream chunks from OpenAI directly to ElevenLabs.
@@ -93,12 +92,6 @@ To run this application locally, kindly follow the steps below:
 4. Open [`http://localhost:3000`](http://localhost:3000) with your browser to see the result.
 
 5. All good! You can start modifying any page and the app will auto-update.
-
-## Deployment
-
-You can fork and deploy anywhere you want or use the one-click buttons below to deploy to Vercel or Netlify. All you need is to ensure you add the environment variables mentioned in the [Getting Started](#getting-started) section.
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2FBolajiAyodeji%2Fchat-with-siri&env=NEXT_PUBLIC_APP_MODE,OPENAI_API_KEY,ELEVENLABS_API_KEY&envDescription=API%20keys%20needed%20for%20the%20application) [![Deploy to Netlify](https://netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/bolajiayodeji/chat-with-siri#NEXT_PUBLIC_APP_MODE=production)
 
 ## API Keys Guide
 
