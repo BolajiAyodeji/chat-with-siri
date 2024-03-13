@@ -21,7 +21,6 @@ A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completion
 * [Features](#features)
 * [Important Files and Folders](#important-files-and-folders)
 * [Getting Started](#getting-started)
-* [Deployment](#deployment)
 * [API Keys Guide](#api-keys-guide)
 * [Troubleshooting](#troubleshooting)
 * [Repo Stats Summary](#repo-stats-summary)
