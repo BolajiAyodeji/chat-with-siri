@@ -2,13 +2,13 @@
 
 const runtimeCaching = require("next-pwa/cache");
 const withPWA = require("next-pwa")({
-  disable: process.env.APP_MODE === "development",
+  disable: process.env.NEXT_PUBLIC_APP_MODE === "development",
   dest: "public",
   scope: "/chat",
   sw: "/sw.js",
   register: true,
   skipWaiting: true,
-  runtimeCaching,
+  runtimeCaching
 });
 
 const nextConfig = withPWA({

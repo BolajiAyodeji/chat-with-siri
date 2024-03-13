@@ -12,6 +12,9 @@ export default function StoreApiKeys({
 }: StoreApiKeysProps) {
   const [isFocused, setIsFocused] = useState(false);
 
+  const OPENAI_KEY = localStorage.getItem("openai-key");
+  const ELEVENLABS_KEY = localStorage.getItem("11labs-key");
+
   const handleSaveKeys = async (formData: FormData) => {
     const key1 = trimString(formData.get("openai-key") as string);
     const key2 = trimString(formData.get("11labs-key") as string);
@@ -29,21 +32,21 @@ export default function StoreApiKeys({
   const handleDeleteKeys = (event: React.MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
 
-    const formElement = document.getElementById("keys-form") as HTMLFormElement;
-    formElement?.reset();
-    setOpenAiKey("");
-    setElevenLabsKey("");
-    localStorage.removeItem("openai-key");
-    localStorage.removeItem("11labs-key");
+    const confirmDelete = confirm("Are you sure you want to delete the API keys?");
+    if (confirmDelete) {
+      const formElement = document.getElementById("keys-form") as HTMLFormElement;
+      formElement?.reset();
+      setOpenAiKey("");
+      setElevenLabsKey("");
+      localStorage.removeItem("openai-key");
+      localStorage.removeItem("11labs-key");
 
-    notifyUser("API keys deleted!", {
-      type: "success",
-      autoClose: 2000
-    });
+      notifyUser("API keys deleted!", {
+        type: "success",
+        autoClose: 2000
+      });
+    }
   };
-
-  const OPENAI_KEY = localStorage.getItem("openai-key");
-  const ELEVENLABS_KEY = localStorage.getItem("11labs-key");
 
   return (
     <>
