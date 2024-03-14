@@ -2,6 +2,8 @@ import { Message } from "@/app/types/chat";
 
 export const runtime = "edge";
 
+const isProduction = process.env.NEXT_PUBLIC_APP_MODE === "production";
+
 export async function POST(req: Request) {
   const { apiKey, messages } = await req.json();
 
@@ -18,9 +20,7 @@ export async function POST(req: Request) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      Authorization: `Bearer ${
-        process.env.NEXT_PUBLIC_APP_MODE === `production` ? apiKey : process.env.OPENAI_API_KEY
-      }`
+      Authorization: `Bearer ${isProduction ? apiKey : process.env.OPENAI_API_KEY}`
     },
     body: JSON.stringify({
       model: "gpt-3.5-turbo",
