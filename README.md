@@ -12,7 +12,7 @@ A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completion
 
 > [!TIP]
 >
-> Kindly read [this comprehensive tutorial](https://blog.bolajiayodeji.com/how-to-build-an-audio-chatbot-with-nextjs-openai-and-elevenlabs) to learn how this was built and how you can build yours (TBA).
+> Kindly read [this comprehensive tutorial](https://blog.bolajiayodeji.com/how-to-build-an-audio-chatbot-with-nextjs-openai-and-elevenlabs) to learn how this was built and how you can build yours.
 
 ---
 
