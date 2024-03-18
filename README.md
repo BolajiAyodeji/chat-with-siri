@@ -1,18 +1,18 @@
 <div align="center">
 
-![](./public/logo.svg)
+[![](./public/logo.svg)](https://chat-with-siri.vercel.app/chat)
 
 A text-to-speech chatbot demo built using Nextjs, OpenAI's GPT-3 Chat Completions API, and ElevenLabs' Text-to-Speech API.
 
 ---
 
-![](./public/demo.png)
+[![](./public/demo.png)]((https://chat-with-siri.vercel.app/chat))
 
 </div>
 
 > [!TIP]
 >
-> Kindly read [this comprehensive tutorial]() to learn how this was built and how you can build yours (TBA).
+> Kindly read [this comprehensive tutorial](https://blog.bolajiayodeji.com/how-to-build-an-audio-chatbot-with-nextjs-openai-and-elevenlabs) to learn how this was built and how you can build yours (TBA).
 
 ---
 
@@ -94,7 +94,7 @@ To run this application locally, kindly follow the steps below:
 
 ## API Keys Guide
 
-To enable anyone to test the application in production if they want to, I've added a form where they can enter their API keys for both OpenAI and ElevenLabs (so I don't have to cover the costs and deal with request overload since this is a basic demo for now). This is a good way for anyone to test the application without having to clone and run it locally. To create both API keys (if you don't have one already), **kindly read this section of [the tutorial]() (TBA)**. Once you have the keys, click on the settings icon at the top section of the page, and enter them in the form provided. You can repeat the same process to update the keys.
+To enable anyone to test the application in production if they want to, I've added a form where they can enter their API keys for both OpenAI and ElevenLabs (so I don't have to cover the costs and deal with request overload since this is a basic demo for now). This is a good way for anyone to test the application without having to clone and run it locally. To create both API keys (if you don't have one already), **kindly read this section of [the tutorial](https://blog.bolajiayodeji.com/how-to-build-an-audio-chatbot-with-nextjs-openai-and-elevenlabs#heading-setting-up-openai)**. Once you have the keys, click on the settings icon at the top section of the page, and enter them in the form provided. You can repeat the same process to update the keys.
 
 > [!WARNING]
 >
