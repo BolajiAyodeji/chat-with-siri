@@ -84,7 +84,7 @@ export default function Home() {
           </p>
         </a>
         <a
-          href="#"
+          href="https://blog.bolajiayodeji.com/how-to-build-an-audio-chatbot-with-nextjs-openai-and-elevenlabs"
           className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300"
           target="_blank"
           rel="noopener noreferrer"
