@@ -14,13 +14,14 @@ export default function ChatVoice({ voices, selectedVoice, setSelectedVoice }: C
           value={selectedVoice}
           onChange={(event) => setSelectedVoice(event.target.value)}
         >
-          {voices
-            .sort((a, b) => (a.name && b.name ? a.name.localeCompare(b.name) : 0))
-            .map((voice) => (
-              <option key={voice.voice_id} value={voice.name}>
-                {voice.name} ({voice.labels?.age} {voice.labels?.accent} {voice.labels?.gender})
-              </option>
-            ))}
+          {voices &&
+            voices
+              .sort((a, b) => a.name!.localeCompare(b.name!))
+              .map((voice) => (
+                <option key={voice.voice_id} value={voice.name}>
+                  {voice.name} ({voice.labels?.age} {voice.labels?.accent} {voice.labels?.gender})
+                </option>
+              ))}
         </select>
       </div>
       <hr className="w-full lg:w-3/4 xl:w-2/4" />
