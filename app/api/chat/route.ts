@@ -32,7 +32,10 @@ export async function POST(req: Request) {
   });
   const data = await res.json();
 
-  if (data.error && data.error.code === "invalid_api_key") {
+  if (
+    data.error &&
+    (data.error.code === "invalid_api_key" || data.error.code === "insufficient_quota")
+  ) {
     return Response.json("Something went wrong. Kindly check for error alerts.", {
       status: 401
     });

@@ -34,7 +34,7 @@ export default function ChatPage() {
     });
 
     if (response.status === 401) {
-      notifyUser("Your OpenAI API Key is invalid. Kindly check and try again.", {
+      notifyUser("There's a problem with your OpenAI API Key. Kindly check and try again.", {
         type: "error",
         autoClose: 5000
       });
