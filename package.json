@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@speech-sdk/core": "^0.4.1",
     "@vercel/analytics": "^1.1.4",
     "elevenlabs": "^1.59.0",
     "next": "^16.2.0",
