@@ -9,16 +9,25 @@ import ChatInput from "@/app/components/chatInput";
 import useLocalStorage from "@/app/hooks/useLocalStorage";
 import getVoices from "@/app/utils/getVoices";
 import notifyUser from "@/app/utils/notifyUser";
-import { userRole, botRole, Message } from "@/app/types/chat";
-import { Voice as VoiceResponse } from "elevenlabs/api";
+import { userRole, botRole, Message, ProviderVoice } from "@/app/types/chat";
+import {
+  DEFAULT_PROVIDER,
+  SpeechProviderId,
+  getProviderDef
+} from "@/app/utils/providers";
 
 export default function ChatPage() {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isModal, setIsModal] = useState(false);
   const [openAiKey, setOpenAiKey] = useLocalStorage<string>("openai-key", "");
   const [elevenLabsKey, setElevenLabsKey] = useLocalStorage<string>("11labs-key", "");
-  const [voices, setVoices] = useState<VoiceResponse[]>([]);
-  const [selectedVoice, setSelectedVoice] = useLocalStorage<string>("selectedVoice", "Myra");
+  const [voices, setVoices] = useState<ProviderVoice[]>([]);
+  const [selectedProvider, setSelectedProvider] =
+    useLocalStorage<SpeechProviderId>("selectedProvider", DEFAULT_PROVIDER);
+  const [selectedVoice, setSelectedVoice] = useLocalStorage<string>(
+    "selectedVoice",
+    "Myra"
+  );
   const [input, setInput] = useState("");
   const [messages, setMessages] = useLocalStorage<Message[]>("chatMessages", []);
   const [loading, setLoading] = useState<boolean>(false);
@@ -44,21 +53,23 @@ export default function ChatPage() {
     return data;
   };
 
-  const getElevenLabsResponse = async (text: string) => {
+  const getSpeechResponse = async (text: string) => {
     const response = await fetch("/api/speech", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
-        apiKey: elevenLabsKey,
+        apiKey: selectedProvider === "openai" ? openAiKey : elevenLabsKey,
         message: text,
-        voice: selectedVoice
+        voice: selectedVoice,
+        provider: selectedProvider
       })
     });
 
     if (response.status === 401) {
-      notifyUser("Your ElevenLabs API Key is invalid. Kindly check and try again.", {
+      const label = selectedProvider === "openai" ? "OpenAI" : "ElevenLabs";
+      notifyUser(`Your ${label} API Key is invalid. Kindly check and try again.`, {
         type: "error",
         autoClose: 5000
       });
@@ -82,7 +93,7 @@ export default function ChatPage() {
       setMessages(chatMessages);
 
       const botChatResponse = await getOpenAIResponse(chatMessages);
-      const botVoiceResponse = await getElevenLabsResponse(botChatResponse);
+      const botVoiceResponse = await getSpeechResponse(botChatResponse);
 
       const reader = new FileReader();
       reader.readAsDataURL(botVoiceResponse);
@@ -105,14 +116,28 @@ export default function ChatPage() {
   };
 
   useEffect(() => {
-    getVoices()
-      .then((voices) => {
-        setVoices(voices ?? []);
+    let cancelled = false;
+    getVoices(selectedProvider)
+      .then((fetched) => {
+        if (cancelled) return;
+        setVoices(fetched);
+        // If the current selection isn't in the new provider's catalog,
+        // snap to the provider's default voice.
+        const hasCurrent = fetched.some((v) => v.id === selectedVoice);
+        if (!hasCurrent) {
+          setSelectedVoice(getProviderDef(selectedProvider).defaultVoice);
+        }
       })
       .catch((error) => {
         console.error("Error fetching voices:", error);
       });
-  }, []);
+    return () => {
+      cancelled = true;
+    };
+    // selectedVoice intentionally omitted: we don't want to refetch when the
+    // user picks a different voice within the same provider.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedProvider]);
 
   return (
     <main className="flex flex-col min-h-screen items-center justify-between py-4 px-4 lg:px-0">
@@ -129,7 +154,15 @@ export default function ChatPage() {
                 setElevenLabsKey
               }}
             />
-            <ChatVoice {...{ voices, selectedVoice, setSelectedVoice }} />
+            <ChatVoice
+              {...{
+                voices,
+                selectedVoice,
+                setSelectedVoice,
+                selectedProvider,
+                setSelectedProvider
+              }}
+            />
           </div>
           <ChatMessages {...{ messages }} />
           <div className="flex flex-col items-center w-full fixed bottom-0 pb-3 bg-gray-900">
