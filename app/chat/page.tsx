@@ -22,6 +22,7 @@ export default function ChatPage() {
   const [openAiKey, setOpenAiKey] = useLocalStorage<string>("openai-key", "");
   const [elevenLabsKey, setElevenLabsKey] = useLocalStorage<string>("11labs-key", "");
   const [voices, setVoices] = useState<ProviderVoice[]>([]);
+  const [voicesLoading, setVoicesLoading] = useState<boolean>(true);
   const [selectedProvider, setSelectedProvider] =
     useLocalStorage<SpeechProviderId>("selectedProvider", DEFAULT_PROVIDER);
   const [selectedVoice, setSelectedVoice] = useLocalStorage<string>(
@@ -117,6 +118,7 @@ export default function ChatPage() {
 
   useEffect(() => {
     let cancelled = false;
+    setVoicesLoading(true);
     getVoices(selectedProvider)
       .then((fetched) => {
         if (cancelled) return;
@@ -130,6 +132,9 @@ export default function ChatPage() {
       })
       .catch((error) => {
         console.error("Error fetching voices:", error);
+      })
+      .finally(() => {
+        if (!cancelled) setVoicesLoading(false);
       });
     return () => {
       cancelled = true;
@@ -141,7 +146,7 @@ export default function ChatPage() {
 
   return (
     <main className="flex flex-col min-h-screen items-center justify-between py-4 px-4 lg:px-0">
-      {voices.length === 0 ? (
+      {voicesLoading ? (
         <p className="text-white text-9xl animate-ping">...</p>
       ) : (
         <>
