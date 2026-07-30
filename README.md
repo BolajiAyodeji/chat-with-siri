@@ -92,6 +92,26 @@ To run this application locally, kindly follow the steps below:
 
 5. All good! You can start modifying any page and the app will auto-update.
 
+### Speech providers
+
+As of this version, text-to-speech is powered by
+[`@speech-sdk/core`](https://www.npmjs.com/package/@speech-sdk/core), a unified
+multi-provider TTS SDK. Two providers ship out of the box:
+
+- **ElevenLabs** (default) — set `ELEVENLABS_API_KEY`
+- **OpenAI** — set `OPENAI_API_KEY` (reuses the key already required for chat
+  completions)
+
+You can switch providers at runtime using the "Speech Provider" dropdown in the
+chat UI. Your selection is persisted to `localStorage`. ElevenLabs voices are
+fetched dynamically via the ElevenLabs API; OpenAI voices are the fixed catalog
+(`alloy`, `ash`, `ballad`, `coral`, `echo`, `fable`, `nova`, `onyx`, `sage`,
+`shimmer`).
+
+To add a new provider, append it to `app/utils/providers.ts` and add a case in
+`app/api/speech/route.ts`. `@speech-sdk/core` supports Deepgram, Cartesia,
+Hume, Google, and others via subpath imports.
+
 ## API Keys Guide
 
 To enable anyone to test the application in production if they want to, I've added a form where they can enter their API keys for both OpenAI and ElevenLabs (so I don't have to cover the costs and deal with request overload since this is a basic demo for now). This is a good way for anyone to test the application without having to clone and run it locally. To create both API keys (if you don't have one already), **kindly read this section of [the tutorial](https://blog.bolajiayodeji.com/how-to-build-an-audio-chatbot-with-nextjs-openai-and-elevenlabs#heading-setting-up-openai)**. Once you have the keys, click on the settings icon at the top section of the page, and enter them in the form provided. You can repeat the same process to update the keys.
