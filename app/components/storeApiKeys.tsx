@@ -8,19 +8,23 @@ export default function StoreApiKeys({
   isModal,
   setIsModal,
   setOpenAiKey,
-  setElevenLabsKey
+  setElevenLabsKey,
+  setSixtyDbKey
 }: StoreApiKeysProps) {
   const [isFocused, setIsFocused] = useState(false);
 
   const OPENAI_KEY = localStorage.getItem("openai-key");
   const ELEVENLABS_KEY = localStorage.getItem("11labs-key");
+  const SIXTYDB_KEY = localStorage.getItem("60db-key");
 
   const handleSaveKeys = async (formData: FormData) => {
     const key1 = trimString(formData.get("openai-key") as string);
     const key2 = trimString(formData.get("11labs-key") as string);
+    const key3 = trimString((formData.get("60db-key") as string) ?? "");
 
     setOpenAiKey(key1);
     setElevenLabsKey(key2);
+    setSixtyDbKey(key3);
     setIsModal(false);
 
     notifyUser("API keys saved!", {
@@ -38,8 +42,10 @@ export default function StoreApiKeys({
       formElement?.reset();
       setOpenAiKey("");
       setElevenLabsKey("");
+      setSixtyDbKey("");
       localStorage.removeItem("openai-key");
       localStorage.removeItem("11labs-key");
+      localStorage.removeItem("60db-key");
 
       notifyUser("API keys deleted!", {
         type: "success",
@@ -145,6 +151,23 @@ export default function StoreApiKeys({
                 }
             } w-2/4 lg:w-52 p-4 border-2 bg-transparent focus:outline-none focus:border-blue-500`}
                 required
+              />
+              <label className="absolute text-sm p-5 text-gray-500" htmlFor="60db-key">
+                {isFocused ? "" : "60db..."}
+              </label>
+              <input
+                id="60db-key"
+                name="60db-key"
+                defaultValue={SIXTYDB_KEY ? JSON.parse(SIXTYDB_KEY) : ""}
+                onFocus={() => setIsFocused(true)}
+                onBlur={() => {
+                  setIsFocused(false);
+                }}
+                className={`${
+                  isFocused
+                    ? `text-white transition ease-in-out duration-700`
+                    : `text-transparent transition ease-in-out`
+                } w-2/4 lg:w-52 p-4 border-x-2 border-b-2 border-t-0 bg-transparent focus:outline-none focus:border-blue-500`}
               />
               <div className="mt-2">
                 <button
