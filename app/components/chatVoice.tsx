@@ -10,18 +10,22 @@ export default function ChatVoice({ voices, selectedVoice, setSelectedVoice }: C
         <select
           id="voices"
           name="voices"
-          className="p-2 w-4/4 text-sm lg:text-base appearance-none bg-transparent border border-white text-blue-500"
+          className="p-2 w-4/4 text-sm lg:text-base appearance-none bg-transparent border border-white text-blue-500 disabled:opacity-50"
           value={selectedVoice}
+          disabled={voices.length === 0}
           onChange={(event) => setSelectedVoice(event.target.value)}
         >
-          {voices &&
+          {voices.length === 0 ? (
+            <option value="">Default voice</option>
+          ) : (
             voices
-              .sort((a, b) => a.name!.localeCompare(b.name!))
+              .sort((a, b) => a.name.localeCompare(b.name))
               .map((voice) => (
-                <option key={voice.voice_id} value={voice.name}>
-                  {voice.name} ({voice.labels?.age} {voice.labels?.accent} {voice.labels?.gender})
+                <option key={voice.voice_id} value={voice.voice_id}>
+                  {voice.name} ({voice.descriptor} {voice.accent} {voice.gender})
                 </option>
-              ))}
+              ))
+          )}
         </select>
       </div>
       <hr className="w-full lg:w-3/4 xl:w-2/4" />
